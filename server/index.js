@@ -48,21 +48,22 @@ passport.use(
       scope: "openid profile"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
-      let { id, displayName, picture } = profile;
+      let { user_id, username, user_avatar } = profile;
       const db = app.get("db");
-      db.find_user([id]).then(user => {
+      db.find_user([user_id]).then(user => {
         if (user[0]) {
           done(null, user[0].user_id);
         } else {
-          db.create_user([displayName, picture, id]).then(createdUser => {
-            done(null, createdUser[0].user_id);
-          });
+          db.create_new_user([username, user_avatar, user_id]).then(
+            createdUser => {
+              done(null, createdUser[0].user_id);
+            }
+          );
         }
       });
     }
   )
 );
-console.log("w");
 
 passport.serializeUser((id, done) => {
   done(null, id);
@@ -84,7 +85,6 @@ app.get(
     successRedirect: "http://localhost:3000/#/home"
   })
 );
-console.log("g");
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)

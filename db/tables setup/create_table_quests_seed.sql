@@ -5,8 +5,8 @@ create table quests (
     user_id integer
     references users(user_id),
     quest_name varchar (80),
-    quest_escription text,
-    quest_icture text,
+    quest_description text,
+    quest_picture text,
     quest_obtained boolean, 
     quest_completed boolean
 );
