@@ -7,8 +7,7 @@ const massive = require("massive");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const app = express();
-
-// const controllers = require("./controllers"); may or may not be needed. i could put all functionality right here in this doc, but longer function i can put in the controller docs. i could even make multiple docs for each type of call. a .get a .delete and so on as a thought for further organization
+const controllers = require("./controllers"); //may or may not be needed. i could put all functionality right here in this doc, but longer function i can put in the controller docs. i could even make multiple docs for each type of call. a .get a .delete and so on as a thought for further organization
 
 const {
   CONNECTION_STRING,
@@ -87,15 +86,9 @@ app.get(
   })
 );
 
-app.get("/auth/user/", (req, res) => {
-  if (req.user) {
-    console.log(req.user);
-    res.status(200).send(req.user);
-    console.log(req.user);
-  } else {
-    res.status(401).send("nice try bub");
-  }
-});
+app.get("/auth/user/", controllers.getUser);
+
+app.get("/api/displaycampaigns", controllers.displayCampaigns);
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
