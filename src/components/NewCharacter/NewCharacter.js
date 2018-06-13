@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "../Header/Header";
 
 export default class NewCharacter extends Component {
   constructor() {
@@ -45,6 +46,7 @@ export default class NewCharacter extends Component {
   render() {
     return (
       <div>
+        <Header />
         <h1>New Character</h1>
         <hr />
         <br />

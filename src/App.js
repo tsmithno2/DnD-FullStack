@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import routes from "./components/Header/Header";
+import routes from "./router/routes";
 
 class App extends Component {
   render() {

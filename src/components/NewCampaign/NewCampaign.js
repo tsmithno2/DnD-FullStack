@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Header from "../Header/Header";
 
 export default class NewCampaign extends Component {
   constructor() {
@@ -21,6 +22,7 @@ export default class NewCampaign extends Component {
   render() {
     return (
       <div>
+        <Header />
         <h1>New Campaign</h1>
         <p>
           Campaign Picture{" "}

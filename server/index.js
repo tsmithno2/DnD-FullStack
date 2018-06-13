@@ -79,12 +79,23 @@ passport.deserializeUser((id, done) => {
 });
 
 app.get("/auth", passport.authenticate("auth0"));
+
 app.get(
   "/auth/callback",
   passport.authenticate("auth0", {
     successRedirect: "http://localhost:3000/#/home"
   })
 );
+
+app.get("/auth/user/", (req, res) => {
+  if (req.user) {
+    console.log(req.user);
+    res.status(200).send(req.user);
+    console.log(req.user);
+  } else {
+    res.status(401).send("nice try bub");
+  }
+});
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
