@@ -5,6 +5,11 @@ export default class Home extends Component {
     return (
       <div>
         <h1>Home</h1>
+        <br />
+        <hr />
+        <div>
+          <h3>List of Campaigns</h3>
+        </div>
       </div>
     );
   }
