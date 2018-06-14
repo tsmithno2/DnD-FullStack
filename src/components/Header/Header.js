@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getUser } from "../../dux/reducer";
+import { getUser, displayCampaigns } from "../../dux/reducer";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -54,5 +54,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { getUser }
+  { getUser, displayCampaigns }
 )(Header);

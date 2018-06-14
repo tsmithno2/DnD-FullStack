@@ -1,14 +1,40 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
-import { displayCampaigns } from "../../dux/reducer";
+import { getUser, displayCampaigns } from "../../dux/reducer";
+import { connect } from "react-redux";
 
-export default class Home extends Component {
+class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: {},
+      list: []
+    };
+  }
+
   componentDidMount() {
-    this.props.displayCampaigns();
+    this.props
+      .getUser()
+
+      .then(() => {
+        this.props.displayCampaigns(this.props.user.user_id);
+      });
   }
 
   render() {
-    let { campaigns } = this.props.campaignsList;
+    let campaigns = this.props.campaignsList.map((campaign, i) => {
+      return (
+        <div key={`campagin id ${i}`}>
+          <h3>Campaign #{i + 1}</h3>
+          <img src={campaign.camp_picture} alt="" />
+          <p>Campign Name: {campaign.camp_name}</p>
+          <p>Quick Description: {campaign.camp_desc1}</p>
+          <h3>Party Members</h3>
+          <hr />
+        </div>
+      );
+    });
+
     return (
       <div>
         <Header />
@@ -17,9 +43,10 @@ export default class Home extends Component {
 
         <hr />
         <div>
-          <h3>List of Campaigns</h3>
+          <h2>List of Campaigns</h2>
           <hr />
         </div>
+        {campaigns}
       </div>
     );
   }
@@ -27,11 +54,12 @@ export default class Home extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user
+    user: state.user, //name on the object coming from the server: how we refference it
+    campaignsList: state.campaignsList
   };
 }
 
 export default connect(
   mapStateToProps,
-  { displayCampaigns }
+  { getUser, displayCampaigns }
 )(Home);

@@ -88,7 +88,7 @@ app.get(
 
 app.get("/auth/user/", controllers.getUser);
 
-app.get("/api/displaycampaigns", controllers.displayCampaigns);
+app.get("/api/displaycampaigns/:id", controllers.displayCampaigns);
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)

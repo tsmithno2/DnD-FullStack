@@ -14,7 +14,7 @@ export default function reducer(state = initState, action) {
       return Object.assign({}, state, { user: action.payload });
 
     case DISPLAY_CAMPAIGNS + "_FULFILLED":
-      return;
+      return Object.assign({}, state, { campaignsList: action.payload });
 
     default:
       return state;
@@ -25,18 +25,21 @@ export function getUser() {
   let userData = axios.get("/auth/user").then(res => {
     return res.data;
   });
+  console.log("tettstst ", userData);
   return {
     type: GET_USER_DATA,
     payload: userData
   };
 }
 
-export function displayCampaigns() {
-  let campaigns = axios.get("/api/displaycampaigns").then(res => {
+export function displayCampaigns(id) {
+  var campaignsList = axios.get(`/api/displaycampaigns/${id}`).then(res => {
+    console.log("reducer 1", res.data);
     return res.data;
   });
+  console.log("reducer ", campaignsList);
   return {
     type: DISPLAY_CAMPAIGNS,
-    payload: campaigns
+    payload: campaignsList
   };
 }
