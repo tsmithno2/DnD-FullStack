@@ -68,7 +68,7 @@ export default class NewCampaign extends Component {
           />
         </p>
 
-        <button onClick={() => console.log(this.state)}>Create</button>
+        <button onClick={() => this.clickCreate()}>Create</button>
         <button onClick={() => this.clickCancel()}>Cancel</button>
       </div>
     );

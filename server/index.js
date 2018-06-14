@@ -47,13 +47,14 @@ passport.use(
       scope: "openid profile"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
-      let { user_id, username, user_avatar } = profile;
+      console.log(profile);
+      let { user_id, displayName, picture } = profile;
       const db = app.get("db");
       db.find_user([user_id]).then(user => {
         if (user[0]) {
           done(null, user[0].user_id);
         } else {
-          db.create_new_user([username, user_avatar, user_id]).then(
+          db.create_new_user([displayName, picture, user_id]).then(
             createdUser => {
               done(null, createdUser[0].user_id);
             }
