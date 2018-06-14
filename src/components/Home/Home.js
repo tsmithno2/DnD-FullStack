@@ -4,24 +4,13 @@ import { getUser, displayCampaigns } from "../../dux/reducer";
 import { connect } from "react-redux";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      user: {},
-      list: []
-    };
-  }
-
   componentDidMount() {
-    this.props
-      .getUser()
-
-      .then(() => {
-        this.props.displayCampaigns(this.props.user.user_id);
-      });
+    this.props.displayCampaigns();
   }
 
   render() {
+    // let partyMembers= this.props.  this will be mapping the array returned that is a join of users to campaigns to parties to characters where the user_id is the same the camp_id is the same and the party is the same
+
     let campaigns = this.props.campaignsList.map((campaign, i) => {
       return (
         <div key={`campagin id ${i}`}>

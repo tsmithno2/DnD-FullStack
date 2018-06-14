@@ -32,8 +32,8 @@ export function getUser() {
   };
 }
 
-export function displayCampaigns(id) {
-  var campaignsList = axios.get(`/api/displaycampaigns/${id}`).then(res => {
+export function displayCampaigns() {
+  var campaignsList = axios.get(`/api/displaycampaigns/`).then(res => {
     console.log("reducer 1", res.data);
     return res.data;
   });
