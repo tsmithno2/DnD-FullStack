@@ -47,7 +47,6 @@ passport.use(
       scope: "openid profile"
     },
     (accessToken, refreshToken, extraParams, profile, done) => {
-      console.log(profile);
       let { user_id, displayName, picture } = profile;
       const db = app.get("db");
       db.find_user([user_id]).then(user => {

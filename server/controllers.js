@@ -28,7 +28,6 @@ module.exports = {
       req.body.camp_desc2,
       req.body.camp_picture
     ]).then(newCamp => {
-      console.log("newCamp Full ", newCamp, " maybe???? ", newCamp[0].camp_id);
       db.create_new_party([newCamp[0].camp_id, req.user.user_id]);
     });
   }

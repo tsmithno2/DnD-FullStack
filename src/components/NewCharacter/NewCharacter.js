@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
+import axios from "axios";
+// import { Link } from "react-router-dom";
 
 export default class NewCharacter extends Component {
   constructor() {
     super();
     this.state = {
       NPC: false,
-      playerCharacter: false,
+      troubleList: false,
       name: "",
       gender: "",
       picture: "",
@@ -19,6 +21,7 @@ export default class NewCharacter extends Component {
       intelligence: "",
       wisdom: "",
       charisma: "",
+      inventory: "",
       notes: ""
     };
   }
@@ -26,7 +29,6 @@ export default class NewCharacter extends Component {
   clickCancel() {
     this.setState({
       NPC: false,
-      playerCharacter: false,
       name: "",
       gender: "",
       picture: "",
@@ -39,7 +41,28 @@ export default class NewCharacter extends Component {
       intelligence: "",
       wisdom: "",
       charisma: "",
+      inventory: "",
       notes: ""
+    });
+  }
+
+  clickCreate() {
+    axios.post("/api/createcharacter", {
+      char_npc: this.state.NPC,
+      char_pc: !this.state.NPC,
+      char_trouble_list: this.state.troubleList,
+      char_name: this.state.name,
+      char_picture: this.state.picture,
+      char_alignment: this.state.alignment,
+      char_deity: this.state.deity,
+      char_strength: this.state.strength,
+      char_dexterity: this.state.dexterity,
+      char_constitution: this.state.constitution,
+      char_intelligence: this.state.intelligence,
+      char_wisdom: this.state.wisdom,
+      char_charisma: this.state.charisma,
+      char_inventory: this.state.inventory,
+      char_dm_notes: this.state.notes
     });
   }
 
@@ -159,6 +182,13 @@ export default class NewCharacter extends Component {
         </div>
         <div>
           {" "}
+          <p>
+            Inventory{" "}
+            <input
+              value={this.state.inventory}
+              onChange={e => this.setState({ inventory: e.target.value })}
+            />
+          </p>
           <p>
             Notes{" "}
             <input
