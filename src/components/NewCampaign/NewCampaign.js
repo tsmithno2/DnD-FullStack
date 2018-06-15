@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default class NewCampaign extends Component {
   constructor() {
@@ -67,8 +68,10 @@ export default class NewCampaign extends Component {
             onChange={e => this.setState({ camp_desc2: e.target.value })}
           />
         </p>
+        <Link to="/home">
+          <button onClick={() => this.clickCreate()}>Create</button>
+        </Link>
 
-        <button onClick={() => this.clickCreate()}>Create</button>
         <button onClick={() => this.clickCancel()}>Cancel</button>
       </div>
     );

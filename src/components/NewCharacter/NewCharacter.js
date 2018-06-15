@@ -56,15 +56,7 @@ export default class NewCharacter extends Component {
             NPC
             <input
               value={this.state.NPC}
-              onChange={() => this.setState({ NPC: true })}
-              type="checkbox"
-            />
-          </p>
-          <p>
-            Player Character{" "}
-            <input
-              value={this.state.playerCharacter}
-              onChange={() => this.setState({ playerCharacter: true })}
+              onChange={() => this.setState({ NPC: !this.state.NPC })}
               type="checkbox"
             />
           </p>
