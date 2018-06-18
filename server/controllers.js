@@ -27,8 +27,12 @@ module.exports = {
       req.body.camp_desc1,
       req.body.camp_desc2,
       req.body.camp_picture
-    ]).then(newCamp => {
-      db.create_new_party([newCamp[0].camp_id, req.user.user_id]);
-    });
+    ])
+      .then(newCamp => {
+        db.create_new_party([newCamp[0].camp_id]);
+      })
+      .then(newCamp => {
+        db.create_new_camp_quest([newCamp[0].camp_id]);
+      });
   }
 };

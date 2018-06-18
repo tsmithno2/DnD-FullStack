@@ -6,7 +6,6 @@ create table characters (
     references campaigns(camp_id),
     char_npc boolean,
     char_pc boolean,
-    char_trouble_list boolean,
     char_name varchar(80),
     char_picture text,
     char_alignment varchar(30),
@@ -20,5 +19,3 @@ create table characters (
     char_inventory text,
     char_dm_notes text
 );
-
-

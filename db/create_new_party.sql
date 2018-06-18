@@ -1,5 +1,5 @@
 insert into parties
-(camp_id, user_id )
+(camp_id)
 values
-($1, $2)
+($1)
 returning *;
