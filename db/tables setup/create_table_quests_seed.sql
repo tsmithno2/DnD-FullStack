@@ -1,9 +1,7 @@
 create table quests (
     quest_id serial primary key,
-    camp_id integer
-    references campaigns(camp_id),
-    user_id integer
-    references users(user_id),
+    cpq_id integer
+    references camp_quest(camp_id),
     quest_name varchar (80),
     quest_description text,
     quest_picture text,

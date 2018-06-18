@@ -4,8 +4,6 @@ create table characters (
     references parties(party_id),
     camp_id integer
     references campaigns(camp_id),
-    user_id integer
-    references users(user_id),
     char_npc boolean,
     char_pc boolean,
     char_trouble_list boolean,

@@ -28,7 +28,6 @@ export default class NewCharacter extends Component {
 
   clickCancel() {
     this.setState({
-      NPC: false,
       name: "",
       gender: "",
       picture: "",

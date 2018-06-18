@@ -18,7 +18,6 @@ class Home extends Component {
           <img src={campaign.camp_picture} alt="" />
           <p>Campign Name: {campaign.camp_name}</p>
           <p>Quick Description: {campaign.camp_desc1}</p>
-          <h3>Party Members</h3>
           <hr />
         </div>
       );

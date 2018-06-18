@@ -1,5 +1,5 @@
-create table parties (
-    party_id serial primary key,
+create table camp_quest (
+    cpq_id serial primary key,
     camp_id integer
     references campaigns(camp_id),
 );
