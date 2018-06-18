@@ -1,0 +1,142 @@
+users----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into users
+(username, user_avatar, auth_id)
+values
+('bob', 'hellboy', '684466846uwyeg;rf;dkjpahj')
+
+
+insert into users
+(username, user_avatar, auth_id)
+values
+('Troy', 'elfBoy', '0985972307984579023dnkjbcvxbckx.ccS dvkbdn DC')
+
+campaigns----------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into campaigns
+(user_id, camp_name, camp_desc1, camp_desc2, camp_picture)
+values
+(1, 'Dark Beginnings', 'your king was murdered, go and find his killer', 'same', 'https://static.myfigurecollection.net/pics/figure/big/55258.jpg');
+
+insert into campaigns
+(user_id, camp_name, camp_desc1, camp_desc2, camp_picture)
+values
+(1,'new hope', 'despite all the war a vision you have, leads you to believe that  peace is near', 'same', 'https://pbs.twimg.com/profile_images/701321300329918464/kS5Mp1w2_400x400.jpg');
+
+insert into campaigns
+(user_id, camp_name, camp_desc1, camp_desc2, camp_picture)
+values
+(2, 'ding dong', 'the witch is dead', 'ding dong the witch is dead', 'https://static.myfigurecollection.net/pics/figure/big/484767.jpg');
+
+insert into campaigns
+(user_id, camp_name, camp_desc1, camp_desc2, camp_picture)
+values
+(3,'the lollipop guild' , 'guild', 'the lollipop guild', 'https://pbs.twimg.com/profile_images/2953113091/f6d5d6f221a19b7276b937ff8c6533de.jpeg');
+
+parties-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into parties
+(camp_id)
+values
+(1);
+
+insert into parties
+(camp_id)
+values
+(2);
+
+insert into parties
+(camp_id)
+values
+(3);
+
+insert into parties
+(camp_id)
+values
+(4);
+
+camp_quets------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+insert into camp_quests
+(camp_id)
+values
+(1);
+
+insert into camp_quests
+(camp_id)
+values
+(2);
+
+insert into camp_quests
+(camp_id)
+values
+(3);
+
+insert into camp_quests
+(camp_id)
+values
+(4);
+
+characters----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- camp 1 =========================================
+insert into characters 
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(1, 1, false, true, 'bob', 'https://i.pinimg.com/originals/15/b3/c5/15b3c54a0224c0357ae2430ed7756b5c.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
+
+insert into characters
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(1, 1, false, true, 'drew', 'https://i.pinimg.com/736x/07/e9/b6/07e9b6e117db8d955cbbbe207f147de1--female-orc-female-knight.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
+-- npcs non in party=============================================
+
+insert into characters
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(null, 1, true, false, 'stacy', 'https://i.pinimg.com/originals/c4/ac/e9/c4ace97a0a140586a3eacee6dd2bd247.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
+
+insert into characters 
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(null, 1, true, false, 'greg', 'https://i.pinimg.com/236x/4d/02/d0/4d02d067ad29802d5995c2a35c00a54a--cg-art-fantasy-characters.jpg', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
+
+insert into characters
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(null, 1, true, false, 'ronald', 'https://i.pinimg.com/originals/6c/88/68/6c886827260df362763886d57603cf92.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
+-- camp 2 =========================================
+insert into characters 
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(2, 2, false, true, 'bob', 'https://i.pinimg.com/originals/15/b3/c5/15b3c54a0224c0357ae2430ed7756b5c.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
+
+insert into characters
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(2, 2, false, true, 'drew', 'https://i.pinimg.com/736x/07/e9/b6/07e9b6e117db8d955cbbbe207f147de1--female-orc-female-knight.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
+insert into characters
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(2, 2, true, false, 'stacy', 'https://i.pinimg.com/originals/c4/ac/e9/c4ace97a0a140586a3eacee6dd2bd247.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
+-- npcs non in party=============================================
+
+insert into characters 
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(null, 2, true, false, 'greg', 'https://i.pinimg.com/236x/4d/02/d0/4d02d067ad29802d5995c2a35c00a54a--cg-art-fantasy-characters.jpg', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
+
+insert into characters
+(party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
+values
+(null, 2, true, false, 'ronald', 'https://i.pinimg.com/originals/6c/88/68/6c886827260df362763886d57603cf92.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+
