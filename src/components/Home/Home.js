@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
-import { getUser, displayCampaigns } from "../../dux/reducer";
+import { displayCampaigns, getParties } from "../../dux/reducer";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
   componentDidMount() {
     this.props.displayCampaigns();
+    this.props.getParties();
   }
 
   render() {
@@ -18,10 +20,18 @@ class Home extends Component {
           <img src={campaign.camp_picture} alt="" />
           <p>Campign Name: {campaign.camp_name}</p>
           <p>Quick Description: {campaign.camp_desc1}</p>
+          <Link to={`/playing/${campaign.camp_id}`}>
+            <button>Continue {campaign.camp_name}</button>
+          </Link>
+          <Link to={`/playing/${(campaign.camp_id, campaign.camp_name)}`}>
+            <button>New Character</button>
+          </Link>
           <hr />
         </div>
       );
     });
+
+    // let party =
 
     return (
       <div>
@@ -42,12 +52,12 @@ class Home extends Component {
 
 function mapStateToProps(state) {
   return {
-    user: state.user, //name on the object coming from the server: how we refference it
+    //name on the object coming from the server: how we refference it
     campaignsList: state.campaignsList
   };
 }
 
 export default connect(
   mapStateToProps,
-  { getUser, displayCampaigns }
+  { displayCampaigns, getParties }
 )(Home);

@@ -10,8 +10,8 @@ export default (
   <Switch>
     <Route exact path="/" component={Login} />
     <Route path="/home" component={Home} />
-    <Route path="/playing" component={Playing} />
+    <Route path="/playing/:campaignid" component={Playing} />
     <Route path="/newcampaign" component={NewCampaign} />
-    <Route path="/newcharacter" component={NewCharacter} />
+    <Route path="/newcharacter/:id" component={NewCharacter} />
   </Switch>
 );

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { createCampaign } from "../../dux/reducer";
 
-export default class NewCampaign extends Component {
+class NewCampaign extends Component {
   constructor() {
     super();
     this.state = {
@@ -24,7 +25,7 @@ export default class NewCampaign extends Component {
   }
 
   clickCreate() {
-    axios.post("/api/createcampaign", {
+    this.props.createCampaign("/api/createcampaign", {
       camp_name: this.state.camp_name,
       camp_desc1: this.state.camp_desc1,
       camp_desc2: this.state.camp_desc2,
@@ -72,8 +73,13 @@ export default class NewCampaign extends Component {
           <button onClick={() => this.clickCreate()}>Create</button>
         </Link>
 
-        <button onClick={() => this.clickCancel()}>Cancel</button>
+        <button onClick={() => this.clickCancel()}>Reset All Fields</button>
       </div>
     );
   }
 }
+
+export default connect(
+  null,
+  { createCampaign }
+)(NewCampaign);

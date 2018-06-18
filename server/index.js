@@ -90,7 +90,11 @@ app.get("/auth/user/", controllers.getUser); // used in header component to disp
 
 app.get("/api/displaycampaigns/", controllers.displayCampaigns); //used in home component to display all campaigns
 
+app.get("/api/getparties/", controllers.getParties); //used to get and store all parties tied to the logged in user
+
 app.post("/api/createcampaign/", controllers.createNewCampaign); //used to create a new campaign. a new party will have to be made as well. i should be able to to that server side behind the scenes. all it needs are foreign keys so i should be able to take those off of the respoce hopefully.
+
+app.post("/api/getcampaign/", controllers.display1Campaign);
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
