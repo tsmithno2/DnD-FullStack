@@ -20,17 +20,24 @@ export default class Playing extends Component {
         camp_id: +this.props.match.params.campaignid
       })
       .then(res => {
-        console.log("res.data playing", res.data);
         this.setState({
           campaign: res.data
         });
-        console.log("this.state.campaign in playing ", this.state.campaign);
       });
-    // .post("");
+    axios
+      .post("/api/getpartymembers", {
+        camp_id: +this.props.match.params.campaignid
+      })
+      .then(res => {
+        console.log("party members log ", res.data);
+        this.setState({
+          party: res.data
+        });
+      });
   }
 
   render() {
-    let campaignMap = this.state.campaign.map((campaign, i) => {
+    let campaignMap = this.state.campaign.map(campaign => {
       return (
         <div key={"displayed campaign"}>
           <h1>Playing {campaign.camp_name}</h1>
@@ -39,10 +46,27 @@ export default class Playing extends Component {
         </div>
       );
     });
+
+    let partyMapped = this.state.party.map((party, i) => {
+      console.log("render log ", party);
+      return (
+        <div key={`party ${i}`}>
+          <hr />
+          <div key={"stats"}>
+            <img src={party.char_picture} alt="" />
+          </div>
+        </div>
+      );
+    });
+
     return (
       <div>
         <Header />
         {campaignMap}
+        <hr />
+        <br />
+        <h2>Party Members</h2>
+        {partyMapped}
       </div>
     );
   }

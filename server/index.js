@@ -94,7 +94,9 @@ app.get("/api/getparties/", controllers.getParties); //used to get and store all
 
 app.post("/api/createcampaign/", controllers.createNewCampaign); //used to create a new campaign. a new party will have to be made as well. i should be able to to that server side behind the scenes. all it needs are foreign keys so i should be able to take those off of the respoce hopefully.
 
-app.post("/api/getcampaign/", controllers.display1Campaign);
+app.post("/api/getcampaign/", controllers.display1Campaign); // used to get all the camaign info from db and display it on the playing page
+
+app.post("/api/getpartymembers", controllers.displayParty); // used to get all the party members and all thier info from the db and display it on the playing page
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)

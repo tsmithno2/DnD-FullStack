@@ -33,11 +33,22 @@ module.exports = {
 
   display1Campaign: (req, res) => {
     const db = req.app.get("db");
-    console.log("we pinged display campaign ", req.body);
     db.display_1_campaign(req.body.camp_id)
       .then(campaign => {
         res.status(200).send(campaign);
-        console.log("we sent stuff ", campaign);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
+  },
+
+  displayParty: (req, res) => {
+    const db = req.app.get("db");
+    db.display_party_of_campaign_x(req.body.camp_id)
+      .then(party => {
+        res.status(200).send(party);
+        console.log("we sent stuff ", party);
       })
       .catch(error => {
         console.log(error);
