@@ -57,8 +57,6 @@ module.exports = {
 
   createNewCampaign: (req, res) => {
     const db = req.app.get("db");
-    console.log(req.user);
-    console.log(req.body);
     db.create_new_campaign([
       req.user.user_id,
       req.body.camp_name,
@@ -91,7 +89,7 @@ module.exports = {
 
   createNewCharacter: (req, res) => {
     const db = req.app.get("db");
-    db.create_new_caracter([
+    db.create_new_character([
       req.body.party_id,
       req.body.camp_id,
       req.body.char_npc,
@@ -108,6 +106,13 @@ module.exports = {
       req.body.char_charisma,
       req.body.char_inventory,
       req.body.char_dm_notes
-    ]);
+    ])
+      .then(character => {
+        res.status(200).send(character);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
   }
 };

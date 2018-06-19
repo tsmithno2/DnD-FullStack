@@ -67,6 +67,10 @@ export default class NewCharacter extends Component {
       this.setState({
         party_id: null
       });
+    } else {
+      this.setState({
+        party_id: +this.props.match.params.campaignid
+      });
     }
 
     axios.post("/api/createcharacter", {
@@ -221,8 +225,16 @@ export default class NewCharacter extends Component {
           </p>
         </div>
 
-        <button onClick={() => console.log(this.state)}> Save </button>
+        <button
+          onClick={() => {
+            this.clickCreate();
+          }}
+        >
+          {" "}
+          Save{" "}
+        </button>
         <button onClick={() => this.clickCancel()}> Cancel </button>
+        <button onClick={() => console.log(this.state)}> State </button>
       </div>
     );
   }
