@@ -64,10 +64,11 @@ export function displayCampaigns() {
 }
 
 export function createCampaign(newCamp) {
-  let newParty = axios.post("/api/createcampaign", newCamp).then(res => {
-    return {
-      type: CREATE_CAMPAIGN,
-      payload: newParty
-    };
+  let newParty = axios.post("/api/createcampaign/", newCamp).then(res => {
+    return res.data;
   });
+  return {
+    type: CREATE_CAMPAIGN,
+    payload: newParty
+  };
 }

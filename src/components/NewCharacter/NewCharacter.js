@@ -7,8 +7,9 @@ export default class NewCharacter extends Component {
   constructor() {
     super();
     this.state = {
+      party_id: null,
+      camp_id: 0,
       NPC: false,
-      troubleList: false,
       name: "",
       gender: "",
       picture: "",
@@ -24,6 +25,22 @@ export default class NewCharacter extends Component {
       inventory: "",
       notes: ""
     };
+  }
+
+  componentDidMount() {
+    console.log(this.state.party_id);
+    axios
+      .post("/api/getpartyfornewcharacter/", {
+        camp_id: +this.props.match.params.campaignid
+      })
+      .then(res => {
+        console.log("this maybe??? ", res.data[0].party_id);
+        this.setState({
+          party_id: res.data[0].party_id,
+          camp_id: +this.props.match.params.campaignid
+        });
+        console.log(this.state.party_id);
+      });
   }
 
   clickCancel() {
@@ -46,10 +63,17 @@ export default class NewCharacter extends Component {
   }
 
   clickCreate() {
+    if (this.state.NPC === true) {
+      this.setState({
+        party_id: null
+      });
+    }
+
     axios.post("/api/createcharacter", {
+      party_id: this.state.party_id,
+      camp_id: this.state.camp_id,
       char_npc: this.state.NPC,
       char_pc: !this.state.NPC,
-      char_trouble_list: this.state.troubleList,
       char_name: this.state.name,
       char_picture: this.state.picture,
       char_alignment: this.state.alignment,

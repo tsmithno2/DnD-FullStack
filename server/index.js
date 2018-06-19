@@ -92,11 +92,15 @@ app.get("/api/displaycampaigns/", controllers.displayCampaigns); //used in home 
 
 app.get("/api/getparties/", controllers.getParties); //used to get and store all parties tied to the logged in user
 
-app.post("/api/createcampaign/", controllers.createNewCampaign); //used to create a new campaign. a new party will have to be made as well. i should be able to to that server side behind the scenes. all it needs are foreign keys so i should be able to take those off of the respoce hopefully.
+app.post("/api/createcampaign/", controllers.createNewCampaign); //used to create a new campaign. a new party will have to be made as well.
 
 app.post("/api/getcampaign/", controllers.display1Campaign); // used to get all the camaign info from db and display it on the playing page
 
 app.post("/api/getpartymembers", controllers.displayParty); // used to get all the party members and all thier info from the db and display it on the playing page
+
+app.post("/api/getpartyfornewcharacter/", controllers.get1PartyId); //used on the create new character page in a component did mount to get a single party id that matches the camp id passed in so we know which party the character belongs to and if an npc, the party id will be null.
+
+app.post("/api/createcharacter", controllers.createNewCharacter); //will take requestAnimationFrame.body and make a new character already tied to a campaign/party
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)

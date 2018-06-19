@@ -25,7 +25,7 @@ class NewCampaign extends Component {
   }
 
   clickCreate() {
-    this.props.createCampaign("/api/createcampaign", {
+    this.props.createCampaign({
       camp_name: this.state.camp_name,
       camp_desc1: this.state.camp_desc1,
       camp_desc2: this.state.camp_desc2,

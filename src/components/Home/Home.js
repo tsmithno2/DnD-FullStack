@@ -23,7 +23,7 @@ class Home extends Component {
           <Link to={`/playing/${campaign.camp_id}`}>
             <button>Continue {campaign.camp_name}</button>
           </Link>
-          <Link to={`/playing/${(campaign.camp_id, campaign.camp_name)}`}>
+          <Link to={`/newcharacter/${campaign.camp_id}`}>
             <button>New Character</button>
           </Link>
           <hr />

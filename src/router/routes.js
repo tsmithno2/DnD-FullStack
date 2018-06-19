@@ -12,6 +12,6 @@ export default (
     <Route path="/home" component={Home} />
     <Route path="/playing/:campaignid" component={Playing} />
     <Route path="/newcampaign" component={NewCampaign} />
-    <Route path="/newcharacter/:id" component={NewCharacter} />
+    <Route path="/newcharacter/:campaignid" component={NewCharacter} />
   </Switch>
 );
