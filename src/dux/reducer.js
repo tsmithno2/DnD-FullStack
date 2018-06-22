@@ -11,6 +11,7 @@ const GET_USER_DATA = "GET_USER_DATA";
 const DISPLAY_CAMPAIGNS = "DISPLAY_CAMPAIGNS";
 const CREATE_CAMPAIGN = "CREATE_CAMPAIGN";
 const GET_PARTIES = "GET_PARTIES";
+const DELETE_CAMPAIGN = "DELETE_CAMPAIGN";
 
 export default function reducer(state = initState, action) {
   switch (action.type) {
@@ -26,6 +27,9 @@ export default function reducer(state = initState, action) {
 
     case CREATE_CAMPAIGN + "_FULFILLED":
       return Object.assign({}, state, { newPartyId: action.payload });
+
+    case DELETE_CAMPAIGN + "_FULFILLED":
+      return Object.assign({}, state, { campaignsList: action.payload });
 
     default:
       return state;
@@ -70,5 +74,19 @@ export function createCampaign(newCamp) {
   return {
     type: CREATE_CAMPAIGN,
     payload: newParty
+  };
+}
+
+export function deleteCampaign(camp_id) {
+  console.log("reducer ", camp_id);
+  let updatedCmapigns = axios
+    .delete(`/api/deletecampaign?camp_id=${camp_id}`)
+    .then(res => {
+      console.log(res.data);
+      return res.data;
+    });
+  return {
+    type: DELETE_CAMPAIGN,
+    payload: updatedCmapigns
   };
 }

@@ -1,0 +1,11 @@
+
+
+drop table characters;
+
+drop table parties;
+
+drop table campaigns;
+
+drop table quests;
+
+drop table users;

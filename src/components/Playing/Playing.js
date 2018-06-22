@@ -34,6 +34,15 @@ export default class Playing extends Component {
           party: res.data
         });
       });
+    axios
+      .post("/api/getnpcs", {
+        camp_id: +this.props.match.params.campaignid
+      })
+      .then(res => {
+        this.setState({
+          allOtherCharacters: res.data
+        });
+      });
   }
 
   render() {
@@ -48,13 +57,66 @@ export default class Playing extends Component {
     });
 
     let partyMapped = this.state.party.map((party, i) => {
-      console.log("render log ", party);
-      return (
-        <div key={`party ${i}`}>
-          <hr />
-          <div key={"stats"}>
-            <img src={party.char_picture} alt="" />
+      console.log(party);
+      if (party.party_id !== null && party.char_pc === false) {
+        return (
+          <div key={`party ${i}`}>
+            <hr />
+            <div key={"stats"}>
+              <img src={party.char_picture} alt="" />
+              <h3>NPC</h3>
+              <p>Name : {party.char_name} </p>
+              <p>Alignment : {party.char_alignment} </p>
+              <p>Deity : {party.char_deity} </p>
+              <p>Strength : {party.char_strength} </p>
+              <p>Dexterity : {party.char_dexterity} </p>
+              <p>Constitution : {party.char_constitution} </p>
+              <p>Intelligence : {party.char_intelligence} </p>
+              <p>Wisdom : {party.char_wisdom} </p>
+              <p>Charisma : {party.char_charisma} </p>
+              <p>Inventory : {party.char_inventory} </p>
+              <p>Notes : {party.char_dm_notes} </p>
+            </div>
           </div>
+        );
+      } else if (party.party_id !== null && party.char_pc === true) {
+        return (
+          <div key={`party ${i}`}>
+            <hr />
+            <div key={"stats"}>
+              <img src={party.char_picture} alt="" />
+              <p>Name : {party.char_name}</p>
+              <p>Alignment : {party.char_alignment} </p>
+              <p>Deity : {party.char_deity} </p>
+              <p>Strength : {party.char_strength} </p>
+              <p>Dexterity : {party.char_dexterity} </p>
+              <p>Constitution : {party.char_constitution} </p>
+              <p>Intelligence : {party.char_intelligence} </p>
+              <p>Wisdom : {party.char_wisdom} </p>
+              <p>Charisma : {party.char_charisma} </p>
+              <p>Inventory : {party.char_inventory} </p>
+              <p>Notes : {party.char_dm_notes} </p>
+            </div>
+          </div>
+        );
+      }
+    });
+
+    let npcsMapped = this.state.allOtherCharacters.map((npcs, i) => {
+      return (
+        <div key={`npcs ${i}`}>
+          <img src={npcs.char_picture} alt="" />
+          <p>Name: {npcs.char_name}</p>
+          <p>Alignment : {npcs.char_alignment} </p>
+          <p>Deity : {npcs.char_deity} </p>
+          <p>Strength : {npcs.char_strength} </p>
+          <p>Dexterity : {npcs.char_dexterity} </p>
+          <p>Constitution : {npcs.char_constitution} </p>
+          <p>Intelligence : {npcs.char_intelligence} </p>
+          <p>Wisdom : {npcs.char_wisdom} </p>
+          <p>Charisma : {npcs.char_charisma} </p>
+          <p>Inventory : {npcs.char_inventory} </p>
+          <p>Notes : {npcs.char_dm_notes} </p>
         </div>
       );
     });
@@ -67,6 +129,10 @@ export default class Playing extends Component {
         <br />
         <h2>Party Members</h2>
         {partyMapped}
+        <hr />
+        <br />
+        <h2>NPC's</h2>
+        {npcsMapped}
       </div>
     );
   }

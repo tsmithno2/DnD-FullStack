@@ -28,10 +28,6 @@ export class Header extends Component {
           <button>Home</button>
         </Link>
 
-        <Link to="/playing">
-          <button>Playing</button>
-        </Link>
-
         <Link to="/newcampaign">
           <button>New Campaign</button>
         </Link>

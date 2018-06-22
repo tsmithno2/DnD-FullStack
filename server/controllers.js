@@ -114,5 +114,30 @@ module.exports = {
         console.log(error);
         res.status(500).send("error");
       });
+  },
+
+  getNpcs: (req, res) => {
+    const db = req.app.get("db");
+    db.get_all_npcs_for_campaign_x([req.body.camp_id, req.user.user_id])
+      .then(npcs => {
+        res.status(200).send(npcs);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
+  },
+
+  deleteCapaign: (req, res) => {
+    const db = req.app.get("db");
+    db.delete_campaign_x(req.query.camp_id, req.user.user_id)
+      .then(campaignList => {
+        console.log(campaignList);
+        res.status(200).send(campaignList);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
   }
 };

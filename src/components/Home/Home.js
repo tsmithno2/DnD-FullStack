@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
-import { displayCampaigns, getParties } from "../../dux/reducer";
+import {
+  displayCampaigns,
+  getParties,
+  deleteCampaign
+} from "../../dux/reducer";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -15,7 +19,7 @@ class Home extends Component {
 
     let campaigns = this.props.campaignsList.map((campaign, i) => {
       return (
-        <div key={`campagin id ${i}`}>
+        <div key={`campagin`}>
           <h3>Campaign #{i + 1}</h3>
           <img src={campaign.camp_picture} alt="" />
           <p>Campign Name: {campaign.camp_name}</p>
@@ -26,6 +30,14 @@ class Home extends Component {
           <Link to={`/newcharacter/${campaign.camp_id}`}>
             <button>New Character</button>
           </Link>
+          <button>Edit</button>
+          <button
+            onClick={() => {
+              this.props.deleteCampaign(campaign.camp_id);
+            }}
+          >
+            Delete
+          </button>
           <hr />
         </div>
       );
@@ -59,5 +71,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { displayCampaigns, getParties }
+  { displayCampaigns, getParties, deleteCampaign }
 )(Home);
