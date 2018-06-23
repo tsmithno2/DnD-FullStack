@@ -106,6 +106,8 @@ app.post("/api/getnpcs", controllers.getNpcs); //will get all npc's related to a
 
 app.delete("/api/deletecampaign", controllers.deleteCapaign); // will delete all quests, parties, characters and campaign info associated with camp_id that was passed in by the home companent
 
+app.delete("/api/deletecharacter", controllers.deleteCharacter); // used in the playing component to delete an individual character for a campaign
+
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
 );

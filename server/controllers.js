@@ -139,5 +139,18 @@ module.exports = {
         console.log(error);
         res.status(500).send("error");
       });
+  },
+
+  deleteCharacter: (req, res) => {
+    console.log("we got here");
+    const db = req.app.get("db");
+    db.delete_character(req.query.char_id)
+      .then(characterList => {
+        res.status(200).send(characterList);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
   }
 };

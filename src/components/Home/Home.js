@@ -19,7 +19,7 @@ class Home extends Component {
 
     let campaigns = this.props.campaignsList.map((campaign, i) => {
       return (
-        <div key={`campagin`}>
+        <div key={`campagin ${i}`}>
           <h3>Campaign #{i + 1}</h3>
           <img src={campaign.camp_picture} alt="" />
           <p>Campign Name: {campaign.camp_name}</p>

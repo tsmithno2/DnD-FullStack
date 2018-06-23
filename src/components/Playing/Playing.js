@@ -12,6 +12,7 @@ export default class Playing extends Component {
       party: [],
       allOtherCharacters: []
     };
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -29,7 +30,6 @@ export default class Playing extends Component {
         camp_id: +this.props.match.params.campaignid
       })
       .then(res => {
-        console.log("party members log ", res.data);
         this.setState({
           party: res.data
         });
@@ -45,6 +45,28 @@ export default class Playing extends Component {
       });
   }
 
+  handleDelete(char_id) {
+    console.log("delete function ", char_id);
+    axios.delete(`/api/deletecharacter?char_id=${char_id}`).then(res => {
+      res.data.map(character => {
+        if (character.party_id !== null && character.char_pc === false) {
+          this.setState({
+            party: character
+          });
+        } else if (character.party_id !== null && character.char_pc === true) {
+          this.setState({
+            party: character
+          });
+        } else {
+          this.setState({
+            allOtherCharacters: character
+          });
+        }
+      });
+    });
+    this.componentDidMount();
+  }
+
   render() {
     let campaignMap = this.state.campaign.map(campaign => {
       return (
@@ -57,7 +79,6 @@ export default class Playing extends Component {
     });
 
     let partyMapped = this.state.party.map((party, i) => {
-      console.log(party);
       if (party.party_id !== null && party.char_pc === false) {
         return (
           <div key={`party ${i}`}>
@@ -76,12 +97,23 @@ export default class Playing extends Component {
               <p>Charisma : {party.char_charisma} </p>
               <p>Inventory : {party.char_inventory} </p>
               <p>Notes : {party.char_dm_notes} </p>
+              {/* <button onClick={console.log("RIGHT HERE 1", this.state)}>
+                Update Info
+              </button> */}
+              <button
+                onClick={() => {
+                  this.handleDelete(party.char_id);
+                }}
+              >
+                Delete
+              </button>
+              <br />
             </div>
           </div>
         );
       } else if (party.party_id !== null && party.char_pc === true) {
         return (
-          <div key={`party ${i}`}>
+          <div key={`party ${i + 1}`}>
             <hr />
             <div key={"stats"}>
               <img src={party.char_picture} alt="" />
@@ -96,6 +128,18 @@ export default class Playing extends Component {
               <p>Charisma : {party.char_charisma} </p>
               <p>Inventory : {party.char_inventory} </p>
               <p>Notes : {party.char_dm_notes} </p>
+              {/* <button onClick={() => {console.log("RIGHT HERE 2", this.state)}}>
+                Update Info
+              </button> */}
+              <button
+                onClick={() => {
+                  console.log(party.char_id);
+                  this.handleDelete(party.char_id);
+                }}
+              >
+                Delete
+              </button>
+              <br />
             </div>
           </div>
         );
@@ -117,6 +161,18 @@ export default class Playing extends Component {
           <p>Charisma : {npcs.char_charisma} </p>
           <p>Inventory : {npcs.char_inventory} </p>
           <p>Notes : {npcs.char_dm_notes} </p>
+          {/* <button onClick={console.log("RIGHT HERE 3", this.state)}>
+            Update Info
+          </button> */}
+          <button
+            onClick={() => {
+              this.handleDelete(npcs.char_id);
+            }}
+          >
+            Delete
+          </button>
+          <br />
+          <hr />
         </div>
       );
     });
