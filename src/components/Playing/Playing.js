@@ -128,7 +128,11 @@ export default class Playing extends Component {
               <p>Charisma : {party.char_charisma} </p>
               <p>Inventory : {party.char_inventory} </p>
               <p>Notes : {party.char_dm_notes} </p>
-              <button onClick={console.log("RIGHT HERE 1", this.state)}>
+              <button
+                onClick={() => {
+                  console.log("RIGHT HERE 1", this.state);
+                }}
+              >
                 Update Info
               </button>
               <button
