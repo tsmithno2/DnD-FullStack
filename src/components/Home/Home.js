@@ -19,7 +19,6 @@ class Home extends Component {
 
   render() {
     let campaigns = this.props.campaignsList.map((campaign, i) => {
-      console.log(campaign);
       return <Campaign key={i} campaign={campaign} i={i} />;
     });
 

@@ -132,7 +132,6 @@ module.exports = {
     const db = req.app.get("db");
     db.delete_campaign_x(req.query.camp_id, req.user.user_id)
       .then(campaignList => {
-        console.log(campaignList);
         res.status(200).send(campaignList);
       })
       .catch(error => {

@@ -22,7 +22,6 @@ export default function reducer(state = initState, action) {
       return Object.assign({}, state, { campaignsList: action.payload });
 
     case GET_PARTIES + "_FULFILLED":
-      console.log("party table for logged in user ", action.payload);
       return Object.assign({}, state, { partyList: action.payload });
 
     case CREATE_CAMPAIGN + "_FULFILLED":
@@ -78,11 +77,9 @@ export function createCampaign(newCamp) {
 }
 
 export function deleteCampaign(camp_id) {
-  console.log("reducer ", camp_id);
   let updatedCmapigns = axios
     .delete(`/api/deletecampaign?camp_id=${camp_id}`)
     .then(res => {
-      console.log(res.data);
       return res.data;
     });
   return {

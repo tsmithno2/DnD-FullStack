@@ -30,7 +30,7 @@ export default class EditModal extends Component {
             <h2>Edit {this.props.camp_name}</h2>
             <p>
               Campaign Picture (URL's ONLY):
-              <br />{" "}
+              <br />
               <input
                 value={this.props.camp_picture}
                 onChange={e => this.setState({ camp_picture: e.target.value })}
