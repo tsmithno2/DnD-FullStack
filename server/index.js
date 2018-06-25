@@ -104,15 +104,17 @@ app.post("/api/createcharacter", controllers.createNewCharacter); //will take re
 
 app.post("/api/getnpcs", controllers.getNpcs); //will get all npc's related to a campaign to be display live on the playing page
 
-app.delete("/api/deletecampaign", controllers.deleteCapaign); // will delete all quests, parties, characters and campaign info associated with camp_id that was passed in by the home companent
-
-app.delete("/api/deletecharacter", controllers.deleteCharacter); // used in the playing component to delete an individual character for a campaign
-
 app.post("/api/getunobquests", controllers.getUnobQuests); // used in the playing component to get all unobtained quests
 
 app.post("/api/getobquests", controllers.getObQuests); // used in the playing comp to get all obtained but not completed quests
 
 app.post("/api/getcompquests", controllers.getComQuests); // used in playing to get all the completed quests
+
+app.delete("/api/deletecampaign", controllers.deleteCapaign); // will delete all quests, parties, characters and campaign info associated with camp_id that was passed in by the home companent
+
+app.delete("/api/deletecharacter", controllers.deleteCharacter); // used in the playing component to delete an individual character for a campaign
+
+app.delete("/api/deletequest", controllers.deleteQuest); // used in the playing comp to delete a single specific quest
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)

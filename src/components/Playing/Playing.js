@@ -77,24 +77,12 @@ export default class Playing extends Component {
 
   handleDelete(char_id) {
     console.log("delete function ", char_id);
-    axios.delete(`/api/deletecharacter?char_id=${char_id}`).then(res => {
-      // eslint-disable-next-line
-      res.data.map(character => {
-        if (character.party_id !== null && character.char_pc === false) {
-          this.setState({
-            party: character
-          });
-        } else if (character.party_id !== null && character.char_pc === true) {
-          this.setState({
-            party: character
-          });
-        } else {
-          this.setState({
-            allOtherCharacters: character
-          });
-        }
-      });
-    });
+    axios.delete(`/api/deletecharacter?char_id=${char_id}`);
+    this.componentDidMount();
+  }
+
+  handleDeleteQuest(quest_id) {
+    axios.delete(`/api/deletequest?quest_id=${quest_id}`);
     this.componentDidMount();
   }
 
@@ -222,9 +210,11 @@ export default class Playing extends Component {
           <p>Name: {quest.quest_name}</p>
           <p>Description: {quest.quest_description}</p>
           <button>Move to Obtained</button>
-          <button>move to Completed</button>
+          <button>Move to Completed</button>
           <button>Edit</button>
-          <button>Delete</button>
+          <button onClick={() => this.handleDeleteQuest(quest.quest_id)}>
+            Delete
+          </button>
         </div>
       );
     });
@@ -238,7 +228,9 @@ export default class Playing extends Component {
           <button>Move to Unobtained</button>
           <button>Move to Completed</button>
           <button>Edit</button>
-          <button>Delete</button>
+          <button onClick={() => this.handleDeleteQuest(quest.quest_id)}>
+            Delete
+          </button>
         </div>
       );
     });
@@ -252,7 +244,9 @@ export default class Playing extends Component {
           <button>Move to Obtained</button>
           <button>Move to Unobtained</button>
           <button>Edit</button>
-          <button>Delete</button>
+          <button onClick={() => this.handleDeleteQuest(quest.quest_id)}>
+            Delete
+          </button>
         </div>
       );
     });

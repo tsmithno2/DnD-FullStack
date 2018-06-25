@@ -187,5 +187,17 @@ module.exports = {
         console.log(error);
         res.status(500).send("error");
       });
+  },
+
+  deleteQuest: (req, res) => {
+    const db = req.app.get("db");
+    db.delete_quest(req.query.quest_id)
+      .then(() => {
+        res.status(200);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
   }
 };
