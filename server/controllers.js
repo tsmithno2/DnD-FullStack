@@ -142,11 +142,46 @@ module.exports = {
   },
 
   deleteCharacter: (req, res) => {
-    console.log("we got here");
     const db = req.app.get("db");
     db.delete_character(req.query.char_id)
       .then(characterList => {
         res.status(200).send(characterList);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
+  },
+
+  getUnobQuests: (req, res) => {
+    const db = req.app.get("db");
+    db.get_unob_quests(req.body.camp_id)
+      .then(questList => {
+        res.status(200).send(questList);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
+  },
+
+  getObQuests: (req, res) => {
+    const db = req.app.get("db");
+    db.get_ob_quests(req.body.camp_id)
+      .then(questList => {
+        res.status(200).send(questList);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
+  },
+
+  getComQuests: (req, res) => {
+    const db = req.app.get("db");
+    db.get_com_quests(req.body.camp_id)
+      .then(questList => {
+        res.status(200).send(questList);
       })
       .catch(error => {
         console.log(error);

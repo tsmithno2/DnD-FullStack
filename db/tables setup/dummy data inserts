@@ -119,3 +119,39 @@ insert into characters
 values
 (null, 2, true, false, 'ronald', 'https://i.pinimg.com/originals/6c/88/68/6c886827260df362763886d57603cf92.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
+
+--quests-----------------------------------------------------------------------------------------------------------------
+
+--camp1===========================================================
+
+insert into quests
+(camp_id, quest_name, quest_description, quest_picture, quest_obtained, quest_completed)
+values
+(1, 'Kill the King', 'Kill the Betrayer', 'https://img00.deviantart.net/27ae/i/2012/161/a/a/dlc_quest_icons_png_ico_by_stormaco-d52y7om.png', false, false);
+
+insert into quests
+(camp_id, quest_name, quest_description, quest_picture, quest_obtained, quest_completed)
+values
+(1, 'Look for the King', 'Find him with your party', 'https://vignette.wikia.nocookie.net/clubpenguin/images/0/06/Quest_item_Navigation_Puzzle_icon.png/revision/latest?cb=20170319204745', true, false);
+
+insert into quests
+(camp_id, quest_name, quest_description, quest_picture, quest_obtained, quest_completed)
+values
+(1, 'Arrive in Runetera', 'After arriving in Runetera meet up with your party', 'https://steamuserimages-a.akamaihd.net/ugc/156899501295128015/7F005C2C1CAD349C2EFF496C03CD1EEBE9809754/?interpolation=lanczos-none&output-format=jpeg&output-quality=95&fit=inside%7C128%3A128&composite-to=*,*%7C128%3A128&background-color=black', true, true);
+
+--camp2==============================================================
+
+insert into quests
+(camp_id, quest_name, quest_description, quest_picture, quest_obtained, quest_completed)
+values
+(2, 'Kill the King', 'Kill the Betrayer', 'https://img00.deviantart.net/27ae/i/2012/161/a/a/dlc_quest_icons_png_ico_by_stormaco-d52y7om.png', false, false);
+
+insert into quests
+(camp_id, quest_name, quest_description, quest_picture, quest_obtained, quest_completed)
+values
+(2, 'Look for the King', 'Find him with your party', 'https://vignette.wikia.nocookie.net/clubpenguin/images/0/06/Quest_item_Navigation_Puzzle_icon.png/revision/latest?cb=20170319204745', true, false );
+
+insert into quests
+(camp_id, quest_name, quest_description, quest_picture, quest_obtained, quest_completed)
+values
+(2, 'Arrive in Runetera', 'After arriving in Runetera meet up with your party', 'https://steamuserimages-a.akamaihd.net/ugc/156899501295128015/7F005C2C1CAD349C2EFF496C03CD1EEBE9809754/?interpolation=lanczos-none&output-format=jpeg&output-quality=95&fit=inside%7C128%3A128&composite-to=*,*%7C128%3A128&background-color=black', true, true );

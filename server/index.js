@@ -108,6 +108,12 @@ app.delete("/api/deletecampaign", controllers.deleteCapaign); // will delete all
 
 app.delete("/api/deletecharacter", controllers.deleteCharacter); // used in the playing component to delete an individual character for a campaign
 
+app.post("/api/getunobquests", controllers.getUnobQuests); // used in the playing component to get all unobtained quests
+
+app.post("/api/getobquests", controllers.getObQuests); // used in the playing comp to get all obtained but not completed quests
+
+app.post("/api/getcompquests", controllers.getComQuests); // used in playing to get all the completed quests
+
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
 );

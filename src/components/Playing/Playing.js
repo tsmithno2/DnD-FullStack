@@ -10,7 +10,10 @@ export default class Playing extends Component {
     this.state = {
       campaign: [],
       party: [],
-      allOtherCharacters: []
+      allOtherCharacters: [],
+      unobtainedQuests: [],
+      obQuests: [],
+      completedQuests: []
     };
     this.handleDelete = this.handleDelete.bind(this);
   }
@@ -43,11 +46,39 @@ export default class Playing extends Component {
           allOtherCharacters: res.data
         });
       });
+    axios
+      .post("/api/getunobquests", {
+        camp_id: +this.props.match.params.campaignid
+      })
+      .then(res => {
+        this.setState({
+          unobtainedQuests: res.data
+        });
+      });
+    axios
+      .post("/api/getobquests", {
+        camp_id: +this.props.match.params.campaignid
+      })
+      .then(res => {
+        this.setState({
+          obQuests: res.data
+        });
+      });
+    axios
+      .post("/api/getcompquests", {
+        camp_id: +this.props.match.params.campaignid
+      })
+      .then(res => {
+        this.setState({
+          completedQuests: res.data
+        });
+      });
   }
 
   handleDelete(char_id) {
     console.log("delete function ", char_id);
     axios.delete(`/api/deletecharacter?char_id=${char_id}`).then(res => {
+      // eslint-disable-next-line
       res.data.map(character => {
         if (character.party_id !== null && character.char_pc === false) {
           this.setState({
@@ -78,11 +109,11 @@ export default class Playing extends Component {
       );
     });
 
+    // eslint-disable-next-line
     let partyMapped = this.state.party.map((party, i) => {
       if (party.party_id !== null && party.char_pc === false) {
         return (
           <div key={`party ${i}`}>
-            <hr />
             <div key={"stats"}>
               <img src={party.char_picture} alt="" />
               <h3>NPC</h3>
@@ -97,9 +128,9 @@ export default class Playing extends Component {
               <p>Charisma : {party.char_charisma} </p>
               <p>Inventory : {party.char_inventory} </p>
               <p>Notes : {party.char_dm_notes} </p>
-              {/* <button onClick={console.log("RIGHT HERE 1", this.state)}>
+              <button onClick={console.log("RIGHT HERE 1", this.state)}>
                 Update Info
-              </button> */}
+              </button>
               <button
                 onClick={() => {
                   this.handleDelete(party.char_id);
@@ -107,14 +138,12 @@ export default class Playing extends Component {
               >
                 Delete
               </button>
-              <br />
             </div>
           </div>
         );
       } else if (party.party_id !== null && party.char_pc === true) {
         return (
           <div key={`party ${i + 1}`}>
-            <hr />
             <div key={"stats"}>
               <img src={party.char_picture} alt="" />
               <p>Name : {party.char_name}</p>
@@ -128,9 +157,13 @@ export default class Playing extends Component {
               <p>Charisma : {party.char_charisma} </p>
               <p>Inventory : {party.char_inventory} </p>
               <p>Notes : {party.char_dm_notes} </p>
-              {/* <button onClick={() => {console.log("RIGHT HERE 2", this.state)}}>
+              <button
+                onClick={() => {
+                  console.log("RIGHT HERE 2", this.state);
+                }}
+              >
                 Update Info
-              </button> */}
+              </button>
               <button
                 onClick={() => {
                   console.log(party.char_id);
@@ -139,7 +172,6 @@ export default class Playing extends Component {
               >
                 Delete
               </button>
-              <br />
             </div>
           </div>
         );
@@ -161,9 +193,13 @@ export default class Playing extends Component {
           <p>Charisma : {npcs.char_charisma} </p>
           <p>Inventory : {npcs.char_inventory} </p>
           <p>Notes : {npcs.char_dm_notes} </p>
-          {/* <button onClick={console.log("RIGHT HERE 3", this.state)}>
+          <button
+            onClick={() => {
+              console.log("RIGHT HERE 3", this.state);
+            }}
+          >
             Update Info
-          </button> */}
+          </button>
           <button
             onClick={() => {
               this.handleDelete(npcs.char_id);
@@ -171,8 +207,48 @@ export default class Playing extends Component {
           >
             Delete
           </button>
-          <br />
-          <hr />
+        </div>
+      );
+    });
+
+    let unobQuestsMapped = this.state.unobtainedQuests.map((quest, i) => {
+      return (
+        <div key={i}>
+          <img src={quest.quest_picture} alt="" />
+          <p>Name: {quest.quest_name}</p>
+          <p>Description: {quest.quest_description}</p>
+          <button>Move to Obtained</button>
+          <button>move to Completed</button>
+          <button>Edit</button>
+          <button>Delete</button>
+        </div>
+      );
+    });
+
+    let obQuestsMapped = this.state.obQuests.map((quest, i) => {
+      return (
+        <div key={"ob " + i}>
+          <img src={quest.quest_picture} alt="" />
+          <p>Name: {quest.quest_name}</p>
+          <p>Description: {quest.quest_description}</p>
+          <button>Move to Unobtained</button>
+          <button>Move to Completed</button>
+          <button>Edit</button>
+          <button>Delete</button>
+        </div>
+      );
+    });
+
+    let comQuestsMapped = this.state.completedQuests.map((quest, i) => {
+      return (
+        <div key={"com " + i}>
+          <img src={quest.quest_picture} alt="" />
+          <p>Name: {quest.quest_name}</p>
+          <p>Description: {quest.quest_description}</p>
+          <button>Move to Obtained</button>
+          <button>Move to Unobtained</button>
+          <button>Edit</button>
+          <button>Delete</button>
         </div>
       );
     });
@@ -183,12 +259,41 @@ export default class Playing extends Component {
         {campaignMap}
         <hr />
         <br />
-        <h2>Party Members</h2>
-        {partyMapped}
-        <hr />
-        <br />
-        <h2>NPC's</h2>
-        {npcsMapped}
+
+        <div key="party">
+          <h2>Party Members</h2>
+          {partyMapped}
+          <hr />
+          <br />
+        </div>
+
+        <div key="npcs">
+          <h2>NPC's</h2>
+          {npcsMapped}
+          <hr />
+          <br />
+        </div>
+
+        <div key="Unobtained Quests">
+          <h2>Unobtained Quests</h2>
+          {unobQuestsMapped}
+          <hr />
+          <br />
+        </div>
+
+        <div key="Obtained Quests">
+          <h2>Obtained, Though Not Completed Quests</h2>
+          {obQuestsMapped}
+          <hr />
+          <br />
+        </div>
+
+        <div key="Completed Quests">
+          <h2>Completed Quests</h2>
+          {comQuestsMapped}
+          <hr />
+          <br />
+        </div>
       </div>
     );
   }
