@@ -6,44 +6,22 @@ import {
   deleteCampaign
 } from "../../dux/reducer";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import Campaign from "./Campaign";
 
 class Home extends Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     this.props.displayCampaigns();
     this.props.getParties();
   }
 
   render() {
-    // let partyMembers= this.props.  this will be mapping the array returned that is a join of users to campaigns to parties to characters where the user_id is the same the camp_id is the same and the party is the same
-
     let campaigns = this.props.campaignsList.map((campaign, i) => {
-      return (
-        <div key={`campagin ${i}`}>
-          <h3>Campaign #{i + 1}</h3>
-          <img src={campaign.camp_picture} alt="" />
-          <p>Campign Name: {campaign.camp_name}</p>
-          <p>Quick Description: {campaign.camp_desc1}</p>
-          <Link to={`/playing/${campaign.camp_id}`}>
-            <button>Continue {campaign.camp_name}</button>
-          </Link>
-          <Link to={`/newcharacter/${campaign.camp_id}`}>
-            <button>New Character</button>
-          </Link>
-          <button>Edit</button>
-          <button
-            onClick={() => {
-              this.props.deleteCampaign(campaign.camp_id);
-            }}
-          >
-            Delete
-          </button>
-          <hr />
-        </div>
-      );
+      console.log(campaign);
+      return <Campaign key={i} campaign={campaign} i={i} />;
     });
-
-    // let party =
 
     return (
       <div>
@@ -52,7 +30,7 @@ class Home extends Component {
         <h1>Home</h1>
 
         <hr />
-        <div>
+        <div className="CampaignList">
           <h2>List of Campaigns</h2>
           <hr />
         </div>
