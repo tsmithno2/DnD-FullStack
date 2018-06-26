@@ -116,6 +116,8 @@ app.delete("/api/deletecharacter", controllers.deleteCharacter); // used in the 
 
 app.delete("/api/deletequest", controllers.deleteQuest); // used in the playing comp to delete a single specific quest
 
+app.put("/api/updatecampaign", controllers.updateCamapign);
+
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
 );

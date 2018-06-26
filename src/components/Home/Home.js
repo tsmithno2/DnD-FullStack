@@ -11,6 +11,7 @@ import Campaign from "./Campaign";
 class Home extends Component {
   constructor(props) {
     super(props);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
   componentDidMount() {
     this.props.displayCampaigns();
@@ -19,7 +20,14 @@ class Home extends Component {
 
   render() {
     let campaigns = this.props.campaignsList.map((campaign, i) => {
-      return <Campaign key={i} campaign={campaign} i={i} />;
+      return (
+        <Campaign
+          key={i}
+          campaign={campaign}
+          i={i}
+          componentDidMount={this.componentDidMount}
+        />
+      );
     });
 
     return (

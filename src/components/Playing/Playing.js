@@ -130,6 +130,7 @@ export default class Playing extends Component {
               >
                 Delete
               </button>
+              <br />
             </div>
           </div>
         );
@@ -164,6 +165,7 @@ export default class Playing extends Component {
               >
                 Delete
               </button>
+              <br />
             </div>
           </div>
         );
@@ -199,6 +201,7 @@ export default class Playing extends Component {
           >
             Delete
           </button>
+          <br />
         </div>
       );
     });
@@ -272,25 +275,27 @@ export default class Playing extends Component {
           <br />
         </div>
 
-        <div key="Unobtained Quests">
-          <h2>Unobtained Quests</h2>
-          {unobQuestsMapped}
+        <div className="Quests">
+          <h2>Quests</h2>
+          <button>New Quest</button>
           <hr />
-          <br />
-        </div>
+          <div key="Unobtained Quests">
+            <h3>Unobtained Quests</h3>
+            {unobQuestsMapped}
+            <br />
+          </div>
 
-        <div key="Obtained Quests">
-          <h2>Obtained, Though Not Completed Quests</h2>
-          {obQuestsMapped}
-          <hr />
-          <br />
-        </div>
+          <div key="Obtained Quests">
+            <h3>Obtained, Though Not Completed Quests</h3>
+            {obQuestsMapped}
+            <br />
+          </div>
 
-        <div key="Completed Quests">
-          <h2>Completed Quests</h2>
-          {comQuestsMapped}
-          <hr />
-          <br />
+          <div key="Completed Quests">
+            <h3>Completed Quests</h3>
+            {comQuestsMapped}
+            <br />
+          </div>
         </div>
       </div>
     );

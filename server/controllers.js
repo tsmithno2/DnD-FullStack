@@ -198,5 +198,23 @@ module.exports = {
         console.log(error);
         res.status(500).send("error");
       });
+  },
+
+  updateCamapign: (req, res) => {
+    const db = req.app.get("db");
+    db.update_campaign([
+      req.body.camp_id,
+      req.body.camp_name,
+      req.body.camp_desc1,
+      req.body.camp_desc2,
+      req.body.camp_picture
+    ])
+      .then(() => {
+        res.status(200);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
   }
 };

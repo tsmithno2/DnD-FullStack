@@ -34,7 +34,6 @@ export default class Campaign extends Component {
         </Link>
         <button
           onClick={() => {
-            console.log(this.props.campaign.camp_id);
             this.handleEdit(this.props.campaign.camp_id);
           }}
         >
@@ -57,6 +56,7 @@ export default class Campaign extends Component {
             camp_desc1={this.props.campaign.camp_desc1}
             camp_desc2={this.props.campaign.camp_desc2}
             camp_id={this.props.campaign.camp_id}
+            componentDidMount={this.props.componentDidMount}
           />
         ) : null}
       </div>

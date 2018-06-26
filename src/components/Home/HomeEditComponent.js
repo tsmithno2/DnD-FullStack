@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./HomeComponents.css";
+import axios from "axios";
 
 export default class EditModal extends Component {
   constructor(props) {
@@ -13,8 +14,29 @@ export default class EditModal extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({
+      camp_id: this.props.camp_id,
+      camp_picture: this.props.camp_picture,
+      camp_name: this.props.camp_name,
+      camp_desc1: this.props.camp_desc1,
+      camp_desc2: this.props.camp_desc2
+    });
+  }
+
+  handleSave() {
+    axios.put("api/updatecampaign", {
+      camp_id: this.state.camp_id,
+      camp_name: this.state.camp_name,
+      camp_desc1: this.state.camp_desc1,
+      camp_desc2: this.state.camp_desc2,
+      camp_picture: this.state.camp_picture
+    });
+    this.props.handleEdit();
+    this.props.componentDidMount();
+  }
+
   render() {
-    console.log("modal ", this.props.camp_id);
     return (
       <div className={"EditModal"}>
         <div className={"Modal"}>
@@ -27,12 +49,12 @@ export default class EditModal extends Component {
             X
           </button>
           <div className="inputs">
-            <h2>Edit {this.props.camp_name}</h2>
+            <h2>Edit {this.state.camp_name}</h2>
             <p>
               Campaign Picture (URL's ONLY):
               <br />
               <input
-                value={this.props.camp_picture}
+                value={this.state.camp_picture}
                 onChange={e => this.setState({ camp_picture: e.target.value })}
               />
             </p>
@@ -42,7 +64,7 @@ export default class EditModal extends Component {
               Campaign Name:
               <br />
               <input
-                value={this.props.camp_name}
+                value={this.state.camp_name}
                 onChange={e => this.setState({ camp_name: e.target.value })}
               />
             </p>
@@ -68,6 +90,14 @@ export default class EditModal extends Component {
             </p>
 
             <br />
+            <button
+              onClick={() => {
+                this.handleSave();
+              }}
+            >
+              Save Changes
+            </button>
+            <button>Cancel</button>
           </div>
         </div>
       </div>
