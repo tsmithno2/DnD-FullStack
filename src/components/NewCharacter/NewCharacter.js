@@ -62,7 +62,7 @@ export default class NewCharacter extends Component {
     });
   }
 
-  clickCreate() {
+  clickSave() {
     if (this.state.NPC === true) {
       this.setState({
         party_id: null
@@ -227,14 +227,12 @@ export default class NewCharacter extends Component {
 
         <button
           onClick={() => {
-            this.clickCreate();
+            this.clickSave();
           }}
         >
-          {" "}
-          Save{" "}
+          Save
         </button>
         <button onClick={() => this.clickCancel()}> Cancel </button>
-        <button onClick={() => console.log(this.state)}> State </button>
       </div>
     );
   }

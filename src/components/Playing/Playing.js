@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Header from "../Header/Header";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 //this.props.match.params aways a string passed in in home on the button. relates to the campaign id which will
 //+this.props.match.params if a number,
@@ -84,6 +85,10 @@ export default class Playing extends Component {
   handleDeleteQuest(quest_id) {
     axios.delete(`/api/deletequest?quest_id=${quest_id}`);
     this.componentDidMount();
+  }
+
+  updateQuestStatus(quest) {
+    axios.put("/api/updatequestStatus", {});
   }
 
   render() {
@@ -212,8 +217,12 @@ export default class Playing extends Component {
           <img src={quest.quest_picture} alt="" />
           <p>Name: {quest.quest_name}</p>
           <p>Description: {quest.quest_description}</p>
-          <button>Move to Obtained</button>
-          <button>Move to Completed</button>
+          <button onClick={() => this.updateQuestStatus(quest[i])}>
+            Move to Obtained
+          </button>
+          <button onClick={() => this.updateQuestStatus(quest[i])}>
+            Move to Completed
+          </button>
           <button>Edit</button>
           <button onClick={() => this.handleDeleteQuest(quest.quest_id)}>
             Delete
@@ -228,8 +237,12 @@ export default class Playing extends Component {
           <img src={quest.quest_picture} alt="" />
           <p>Name: {quest.quest_name}</p>
           <p>Description: {quest.quest_description}</p>
-          <button>Move to Unobtained</button>
-          <button>Move to Completed</button>
+          <button onClick={() => this.updateQuestStatus(quest[i])}>
+            Move to Unobtained
+          </button>
+          <button onClick={() => this.updateQuestStatus(quest[i])}>
+            Move to Completed
+          </button>
           <button>Edit</button>
           <button onClick={() => this.handleDeleteQuest(quest.quest_id)}>
             Delete
@@ -244,8 +257,12 @@ export default class Playing extends Component {
           <img src={quest.quest_picture} alt="" />
           <p>Name: {quest.quest_name}</p>
           <p>Description: {quest.quest_description}</p>
-          <button>Move to Obtained</button>
-          <button>Move to Unobtained</button>
+          <button onClick={() => this.updateQuestStatus(quest[i])}>
+            Move to Obtained
+          </button>
+          <button onClick={() => this.updateQuestStatus(quest[i])}>
+            Move to Unobtained
+          </button>
           <button>Edit</button>
           <button onClick={() => this.handleDeleteQuest(quest.quest_id)}>
             Delete
@@ -277,7 +294,9 @@ export default class Playing extends Component {
 
         <div className="Quests">
           <h2>Quests</h2>
-          <button>New Quest</button>
+          <Link to={`/newquest/${+this.props.match.params.campaignid}`}>
+            <button>New Quest</button>
+          </Link>
           <hr />
           <div key="Unobtained Quests">
             <h3>Unobtained Quests</h3>

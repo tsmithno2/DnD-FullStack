@@ -216,5 +216,24 @@ module.exports = {
         console.log(error);
         res.status(500).send("error");
       });
+  },
+
+  createNewQuest: (req, res) => {
+    const db = req.app.get("db");
+    db.create_new_quest([
+      req.body.camp_id,
+      req.body.quest_name,
+      req.body.quest_description,
+      req.body.quest_picture,
+      req.body.quest_obtained,
+      req.body.quest_completed
+    ])
+      .then(quest => {
+        res.status(200);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
   }
 };

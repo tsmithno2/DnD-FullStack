@@ -24,7 +24,7 @@ class NewCampaign extends Component {
     });
   }
 
-  clickCreate() {
+  clickSavee() {
     this.props.createCampaign({
       camp_name: this.state.camp_name,
       camp_desc1: this.state.camp_desc1,
@@ -70,7 +70,7 @@ class NewCampaign extends Component {
           />
         </p>
         <Link to="/home">
-          <button onClick={() => this.clickCreate()}>Create</button>
+          <button onClick={() => this.clickSave()}>Create</button>
         </Link>
 
         <button onClick={() => this.clickCancel()}>Reset All Fields</button>

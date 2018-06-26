@@ -8,10 +8,10 @@ export default class Campaign extends Component {
     this.state = {
       showModal: false
     };
-    this.handleEdit = this.handleEdit.bind(this);
+    this.clickEdit = this.clickEdit.bind(this);
   }
 
-  handleEdit(camp_id) {
+  clickEdit(camp_id) {
     console.log(camp_id);
 
     this.setState({
@@ -32,9 +32,12 @@ export default class Campaign extends Component {
         <Link to={`/newcharacter/${this.props.campaign.camp_id}`}>
           <button>New Character</button>
         </Link>
+        <Link to={`/newquest/${this.props.campaign.camp_id}`}>
+          <button>New Quest</button>
+        </Link>
         <button
           onClick={() => {
-            this.handleEdit(this.props.campaign.camp_id);
+            this.clickEdit(this.props.campaign.camp_id);
           }}
         >
           Edit
@@ -50,7 +53,7 @@ export default class Campaign extends Component {
         <hr />
         {this.state.showModal ? (
           <EditModal
-            handleEdit={this.handleEdit}
+            clickEdit={this.clickEdit}
             camp_picture={this.props.campaign.camp_picture}
             camp_name={this.props.campaign.camp_name}
             camp_desc1={this.props.campaign.camp_desc1}

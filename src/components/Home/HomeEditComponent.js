@@ -24,7 +24,7 @@ export default class EditModal extends Component {
     });
   }
 
-  handleSave() {
+  clickSave() {
     axios.put("api/updatecampaign", {
       camp_id: this.state.camp_id,
       camp_name: this.state.camp_name,
@@ -32,7 +32,7 @@ export default class EditModal extends Component {
       camp_desc2: this.state.camp_desc2,
       camp_picture: this.state.camp_picture
     });
-    this.props.handleEdit();
+    this.props.clickEdit();
     this.props.componentDidMount();
   }
 
@@ -43,7 +43,7 @@ export default class EditModal extends Component {
           <button
             className="ButtonX"
             onClick={() => {
-              this.props.handleEdit();
+              this.props.clickEdit();
             }}
           >
             X
@@ -92,7 +92,7 @@ export default class EditModal extends Component {
             <br />
             <button
               onClick={() => {
-                this.handleSave();
+                this.clickSave();
               }}
             >
               Save Changes
