@@ -8,11 +8,8 @@ set char_name= $2,
     char_constitution= $8,
     char_intelligence= $9,
     char_wisdom= $10,
-    char_charisma= $12,
-    char_inventory= $13,
-    char_dm_notes= $14
+    char_charisma= $11,
+    char_inventory= $12,
+    char_dm_notes= $13
 where char_id= $1;
-      
-      
-      
       

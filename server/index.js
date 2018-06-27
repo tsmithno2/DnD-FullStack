@@ -132,6 +132,10 @@ app.put("/api/updateobquests", controllers.updateAllQuests); // used in playing 
 
 app.put("/api/updatecompquests", controllers.updateAllQuests); // used in playing component to move quests from one catagory to another
 
+app.put("/api/movetoparty", controllers.moveNpc);
+
+app.put("/api/removefromparty", controllers.moveNpc);
+
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
 );

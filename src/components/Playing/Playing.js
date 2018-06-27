@@ -134,6 +134,8 @@ export default class Playing extends Component {
             <PartyNpcsMapped
               char_id={party.char_id}
               char_picture={party.char_picture}
+              party_id={party.party_id}
+              char_npc={party.char_npc}
               char_name={party.char_name}
               char_alignment={party.char_alignment}
               char_deity={party.char_deity}
@@ -159,6 +161,9 @@ export default class Playing extends Component {
           <NpcsMapped
             char_id={npcs.char_id}
             char_picture={npcs.char_picture}
+            party_id={npcs.party_id}
+            camp_id={npcs.camp_id}
+            char_npc={npcs.char_npc}
             char_name={npcs.char_name}
             char_alignment={npcs.char_alignment}
             char_deity={npcs.char_deity}

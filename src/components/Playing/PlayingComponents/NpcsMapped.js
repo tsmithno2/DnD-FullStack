@@ -6,6 +6,9 @@ export default class NpcsMapped extends Component {
     super(props);
     this.state = {
       char_id: "",
+      party_id: "",
+      camp_id: "",
+      char_npc: "",
       char_picture: "",
       char_name: "",
       char_alignment: "",
@@ -29,6 +32,9 @@ export default class NpcsMapped extends Component {
     this.setState({
       char_id: this.props.char_id,
       char_picture: this.props.char_picture,
+      party_id: this.props.party_id,
+      camp_id: this.props.camp_id,
+      char_npc: this.props.char_npc,
       char_name: this.props.char_name,
       char_alignment: this.props.char_alignment,
       char_deity: this.props.char_deity,
@@ -58,6 +64,7 @@ export default class NpcsMapped extends Component {
   clickSave() {
     axios.put("/api/updatenpcs", {
       char_id: this.state.char_id,
+      party_id: this.state.party_id,
       char_name: this.state.char_name,
       char_picture: this.state.char_picture,
       char_alignment: this.state.char_alignment,
@@ -72,6 +79,26 @@ export default class NpcsMapped extends Component {
       char_dm_notes: this.state.char_dm_notes
     });
     this.clickEdit();
+  }
+
+  moveIntoParty() {
+    axios.put("/api/movetoparty", {
+      char_id: this.state.char_id,
+      party_id: this.state.camp_id,
+      char_name: this.state.char_name,
+      char_picture: this.state.char_picture,
+      char_alignment: this.state.char_alignment,
+      char_deity: this.state.char_deity,
+      char_strength: this.state.char_strength,
+      char_dexterity: this.state.char_dexterity,
+      char_constitution: this.state.char_constitution,
+      char_intelligence: this.state.char_intelligence,
+      char_wisdom: this.state.char_wisdom,
+      char_charisma: this.state.char_charisma,
+      char_inventory: this.state.char_inventory,
+      char_dm_notes: this.state.char_dm_notes,
+      editToggle: false
+    });
   }
 
   render() {
@@ -164,7 +191,13 @@ export default class NpcsMapped extends Component {
         >
           Delete
         </button>
-        {/* <button>Move To Party</button> */}
+        <button
+          onClick={() => {
+            this.moveIntoParty();
+          }}
+        >
+          Move Into Party
+        </button>
         <button
           onClick={() => {
             this.clickSave();

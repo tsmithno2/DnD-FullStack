@@ -264,7 +264,6 @@ module.exports = {
   },
 
   updateAllQuests: (req, res) => {
-    console.log("we got here ", req.body);
     const db = req.app.get("db");
     db.update_quest([
       req.body.quest_id,
@@ -277,6 +276,33 @@ module.exports = {
       .then(quest => {
         console.log("res ", quest);
         res.status(200).send(quest);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
+  },
+
+  moveNpc: (req, res) => {
+    const db = req.app.get("db");
+    db.move_npc([
+      req.body.char_id,
+      req.body.party_id,
+      req.body.char_name,
+      req.body.char_picture,
+      req.body.char_alignment,
+      req.body.char_deity,
+      req.body.char_strength,
+      req.body.char_dexterity,
+      req.body.char_constitution,
+      req.body.char_intelligence,
+      req.body.char_wisdom,
+      req.body.char_charisma,
+      req.body.char_inventory,
+      req.body.char_dm_notes
+    ])
+      .then(() => {
+        res.status(200);
       })
       .catch(error => {
         console.log(error);

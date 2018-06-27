@@ -7,6 +7,8 @@ export default class PartyNpcsMapped extends Component {
     this.state = {
       char_id: "",
       char_picture: "",
+      party_id: "",
+      char_npc: "",
       char_name: "",
       char_alignment: "",
       char_deity: "",
@@ -72,6 +74,26 @@ export default class PartyNpcsMapped extends Component {
       char_dm_notes: this.state.char_dm_notes
     });
     this.clickEdit();
+  }
+
+  removeFromParty() {
+    axios.put("/api/removefromparty", {
+      char_id: this.state.char_id,
+      party_id: null,
+      char_name: this.state.char_name,
+      char_picture: this.state.char_picture,
+      char_alignment: this.state.char_alignment,
+      char_deity: this.state.char_deity,
+      char_strength: this.state.char_strength,
+      char_dexterity: this.state.char_dexterity,
+      char_constitution: this.state.char_constitution,
+      char_intelligence: this.state.char_intelligence,
+      char_wisdom: this.state.char_wisdom,
+      char_charisma: this.state.char_charisma,
+      char_inventory: this.state.char_inventory,
+      char_dm_notes: this.state.char_dm_notes,
+      editToggle: false
+    });
   }
 
   render() {
@@ -164,7 +186,13 @@ export default class PartyNpcsMapped extends Component {
         >
           Delete
         </button>
-        {/* <button>Remove From Party</button> */}
+        <button
+          onClick={() => {
+            this.removeFromParty();
+          }}
+        >
+          Remove From Party
+        </button>
         <button
           onClick={() => {
             this.clickSave();

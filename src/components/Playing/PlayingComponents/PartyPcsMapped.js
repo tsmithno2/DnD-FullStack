@@ -164,7 +164,6 @@ export default class PartyPcsMapped extends Component {
         >
           Delete
         </button>
-        <button>Move To Party</button>
         <button
           onClick={() => {
             this.clickSave();
