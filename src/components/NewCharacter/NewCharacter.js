@@ -28,18 +28,15 @@ export default class NewCharacter extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state.party_id);
     axios
       .post("/api/getpartyfornewcharacter/", {
         camp_id: +this.props.match.params.campaignid
       })
       .then(res => {
-        console.log("this maybe??? ", res.data[0].party_id);
         this.setState({
           party_id: res.data[0].party_id,
           camp_id: +this.props.match.params.campaignid
         });
-        console.log(this.state.party_id);
       });
   }
 

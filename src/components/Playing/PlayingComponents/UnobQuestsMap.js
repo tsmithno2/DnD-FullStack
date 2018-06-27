@@ -27,7 +27,6 @@ export default class UnobQuestsMap extends Component {
       quest_obtained: this.props.quest_obtained,
       quest_completed: this.props.quest_completed
     });
-    console.log("mounted state ", this.state);
   }
 
   clickEdit() {
