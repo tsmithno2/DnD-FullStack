@@ -3,8 +3,11 @@ import Header from "../Header/Header";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import NpcsMapped from "./PlayingComponents/NpcsMapped";
-import PartyPcsMapped from "./PlayingComponents/PartyPcsMap";
-import PartyNpcsMapped from "./PlayingComponents/PartyNpcsMap";
+import PartyPcsMapped from "./PlayingComponents/PartyPcsMapped";
+import PartyNpcsMapped from "./PlayingComponents/PartyNpcsMapped";
+import UnobQuestsMap from "./PlayingComponents/UnobQuestsMap";
+import ObQuestsMap from "./PlayingComponents/ObQuestsMap";
+import CompQuestsMap from "./PlayingComponents/CompQuestsMap";
 
 //this.props.match.params aways a string passed in in home on the button. relates to the campaign id which will
 //+this.props.match.params if a number,
@@ -19,7 +22,9 @@ export default class Playing extends Component {
       obQuests: [],
       completedQuests: []
     };
+    this.componentDidMount = this.componentDidMount.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+    this.handleDeleteQuest = this.handleDeleteQuest.bind(this);
   }
 
   componentDidMount() {
@@ -80,7 +85,6 @@ export default class Playing extends Component {
   }
 
   handleDelete(char_id) {
-    console.log("delete function ", char_id);
     axios.delete(`/api/deletecharacter?char_id=${char_id}`);
     this.componentDidMount();
   }
@@ -88,10 +92,6 @@ export default class Playing extends Component {
   handleDeleteQuest(quest_id) {
     axios.delete(`/api/deletequest?quest_id=${quest_id}`);
     this.componentDidMount();
-  }
-
-  updateQuestStatus(quest) {
-    axios.put("/api/updatequestStatus", {});
   }
 
   render() {
@@ -154,7 +154,6 @@ export default class Playing extends Component {
     });
 
     let npcsMapped = this.state.allOtherCharacters.map((npcs, i) => {
-      //===================================================================================================
       return (
         <div key={i}>
           <NpcsMapped
@@ -181,19 +180,16 @@ export default class Playing extends Component {
     let unobQuestsMapped = this.state.unobtainedQuests.map((quest, i) => {
       return (
         <div key={i}>
-          <img src={quest.quest_picture} alt="" />
-          <p>Name: {quest.quest_name}</p>
-          <p>Description: {quest.quest_description}</p>
-          <button onClick={() => this.updateQuestStatus(quest[i])}>
-            Move to Obtained
-          </button>
-          <button onClick={() => this.updateQuestStatus(quest[i])}>
-            Move to Completed
-          </button>
-          <button>Edit</button>
-          <button onClick={() => this.handleDeleteQuest(quest.quest_id)}>
-            Delete
-          </button>
+          <UnobQuestsMap
+            quest_id={quest.quest_id}
+            quest_name={quest.quest_name}
+            quest_description={quest.quest_description}
+            quest_picture={quest.quest_picture}
+            quest_obtained={quest.quest_obtained}
+            quest_completed={quest.quest_completed}
+            keyi={i}
+            handleDeleteQuest={this.handleDeleteQuest}
+          />
         </div>
       );
     });
@@ -201,19 +197,16 @@ export default class Playing extends Component {
     let obQuestsMapped = this.state.obQuests.map((quest, i) => {
       return (
         <div key={"ob " + i}>
-          <img src={quest.quest_picture} alt="" />
-          <p>Name: {quest.quest_name}</p>
-          <p>Description: {quest.quest_description}</p>
-          <button onClick={() => this.updateQuestStatus(quest[i])}>
-            Move to Unobtained
-          </button>
-          <button onClick={() => this.updateQuestStatus(quest[i])}>
-            Move to Completed
-          </button>
-          <button>Edit</button>
-          <button onClick={() => this.handleDeleteQuest(quest.quest_id)}>
-            Delete
-          </button>
+          <ObQuestsMap
+            quest_id={quest.quest_id}
+            quest_name={quest.quest_name}
+            quest_description={quest.quest_description}
+            quest_picture={quest.quest_picture}
+            quest_obtained={quest.quest_obtained}
+            quest_completed={quest.quest_completed}
+            keyi={i}
+            handleDeleteQuest={this.handleDeleteQuest}
+          />
         </div>
       );
     });
@@ -221,19 +214,16 @@ export default class Playing extends Component {
     let comQuestsMapped = this.state.completedQuests.map((quest, i) => {
       return (
         <div key={"com " + i}>
-          <img src={quest.quest_picture} alt="" />
-          <p>Name: {quest.quest_name}</p>
-          <p>Description: {quest.quest_description}</p>
-          <button onClick={() => this.updateQuestStatus(quest[i])}>
-            Move to Obtained
-          </button>
-          <button onClick={() => this.updateQuestStatus(quest[i])}>
-            Move to Unobtained
-          </button>
-          <button>Edit</button>
-          <button onClick={() => this.handleDeleteQuest(quest.quest_id)}>
-            Delete
-          </button>
+          <CompQuestsMap
+            quest_id={quest.quest_id}
+            quest_name={quest.quest_name}
+            quest_description={quest.quest_description}
+            quest_picture={quest.quest_picture}
+            quest_obtained={quest.quest_obtained}
+            quest_completed={quest.quest_completed}
+            keyi={i}
+            handleDeleteQuest={this.handleDeleteQuest}
+          />
         </div>
       );
     });
@@ -272,7 +262,7 @@ export default class Playing extends Component {
           </div>
 
           <div key="Obtained Quests">
-            <h3>Obtained, Though Not Completed Quests</h3>
+            <h3>Obtained Quests</h3>
             {obQuestsMapped}
             <br />
           </div>

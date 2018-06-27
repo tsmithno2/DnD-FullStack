@@ -27,13 +27,13 @@ export default class UnobQuestsMap extends Component {
       quest_obtained: this.props.quest_obtained,
       quest_completed: this.props.quest_completed
     });
-    console.log("mounted state ", this.state);
   }
 
   clickEdit() {
     this.setState({
       editToggle: !this.state.editToggle
     });
+    console.log("edit toggle ", this.state);
   }
 
   handleChange(e) {
@@ -44,7 +44,7 @@ export default class UnobQuestsMap extends Component {
 
   clickSave() {
     console.log("saved state ", this.state);
-    axios.put("/api/updateunobquests", {
+    axios.put("/api/updateobquests", {
       quest_id: this.state.quest_id,
       quest_name: this.state.quest_name,
       quest_description: this.state.quest_description,
@@ -55,6 +55,17 @@ export default class UnobQuestsMap extends Component {
     this.clickEdit();
   }
 
+  moveQuestToUnobtained() {
+    axios.put("/api/updatecompquests", {
+      quest_id: this.state.quest_id,
+      quest_name: this.state.quest_name,
+      quest_description: this.state.quest_description,
+      quest_picture: this.state.quest_picture,
+      quest_obtained: false,
+      quest_completed: false
+    });
+  }
+
   moveQuestToObtained() {
     axios.put("/api/updateunobquests", {
       quest_id: this.state.quest_id,
@@ -62,24 +73,13 @@ export default class UnobQuestsMap extends Component {
       quest_description: this.state.quest_description,
       quest_picture: this.state.quest_picture,
       quest_obtained: true,
-      quest_completed: this.state.quest_completed
-    });
-  }
-
-  moveQuestToCompleted() {
-    axios.put("/api/updateunobquests", {
-      quest_id: this.state.quest_id,
-      quest_name: this.state.quest_name,
-      quest_description: this.state.quest_description,
-      quest_picture: this.state.quest_picture,
-      quest_obtained: true,
-      quest_completed: true
+      quest_completed: false
     });
   }
 
   render() {
     return (
-      <div key={`unob ${this.props.keyi}`}>
+      <div key={`comp ${this.props.keyi}`}>
         {this.state.editToggle ? (
           <div>
             <input
@@ -101,9 +101,9 @@ export default class UnobQuestsMap extends Component {
         ) : (
           <div>
             <img src={this.state.quest_picture} alt="" />
-            <h3>Quest Name</h3>
+            <p>Quest Name</p>
             <p>{this.state.quest_name}</p>
-            <h3>Quest Description</h3>
+            <p>Quest Description</p>
             <p>{this.state.quest_description}</p>
           </div>
         )}
@@ -117,19 +117,19 @@ export default class UnobQuestsMap extends Component {
         </button>
         <button
           onClick={() => {
+            this.moveQuestToUnobtained();
+          }}
+        >
+          Move to Unobtained Quests
+        </button>
+        <button
+          onClick={() => {
             this.moveQuestToObtained();
-            console.log("saw the click");
           }}
         >
           Move To Obtained Quests
         </button>
-        <button
-          onClick={() => {
-            this.moveQuestToCompleted();
-          }}
-        >
-          Move To Completed Quests
-        </button>
+
         <button
           onClick={() => {
             this.clickSave();

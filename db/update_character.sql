@@ -11,7 +11,7 @@ set char_name= $2,
     char_charisma= $12,
     char_inventory= $13,
     char_dm_notes= $14
-where char_id= $1, 
+where char_id= $1;
       
       
       

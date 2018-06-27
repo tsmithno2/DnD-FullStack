@@ -261,5 +261,26 @@ module.exports = {
         console.log(error);
         res.status(500).send("error");
       });
+  },
+
+  updateAllQuests: (req, res) => {
+    console.log("we got here ", req.body);
+    const db = req.app.get("db");
+    db.update_quest([
+      req.body.quest_id,
+      req.body.quest_name,
+      req.body.quest_description,
+      req.body.quest_picture,
+      req.body.quest_obtained,
+      req.body.quest_completed
+    ])
+      .then(quest => {
+        console.log("res ", quest);
+        res.status(200).send(quest);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
   }
 };

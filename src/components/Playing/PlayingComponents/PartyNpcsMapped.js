@@ -75,7 +75,6 @@ export default class PartyNpcsMapped extends Component {
   }
 
   render() {
-    console.log("edit state ", this.state);
     return (
       <div key={`npcs ${this.props.keyi}`}>
         {this.state.editToggle ? (

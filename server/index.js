@@ -122,9 +122,15 @@ app.put("/api/updatecampaign", controllers.updateCamapign); //used in the home c
 
 app.put("/api/updatenpcs", controllers.updateAllCharacters); // used in playing component to edit npcs
 
-app.put("/api/updatepartynpcs", controllers.updateAllCharacters);
+app.put("/api/updatepartynpcs", controllers.updateAllCharacters); // used in playing component to edit party members who are npcs
 
-app.put("/api/updatepcs", controllers.updateAllCharacters);
+app.put("/api/updatepcs", controllers.updateAllCharacters); // used in playing component to edit player characters in the party
+
+app.put("/api/updateunobquests", controllers.updateAllQuests); // used in playing component to edit
+
+app.put("/api/updateobquests", controllers.updateAllQuests); // used in playing component to edit
+
+app.put("/api/updatecompquests", controllers.updateAllQuests); // used in playing component to edit
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
