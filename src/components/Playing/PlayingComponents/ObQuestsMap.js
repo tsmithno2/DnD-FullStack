@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class NpcsMapped extends Component {
+export default class ObQuestsMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
