@@ -126,11 +126,11 @@ app.put("/api/updatepartynpcs", controllers.updateAllCharacters); // used in pla
 
 app.put("/api/updatepcs", controllers.updateAllCharacters); // used in playing component to edit player characters in the party
 
-app.put("/api/updateunobquests", controllers.updateAllQuests); // used in playing component to edit
+app.put("/api/updateunobquests", controllers.updateAllQuests); // used in playing component to move quests from one catagory to another
 
-app.put("/api/updateobquests", controllers.updateAllQuests); // used in playing component to edit
+app.put("/api/updateobquests", controllers.updateAllQuests); // used in playing component to move quests from one catagory to another
 
-app.put("/api/updatecompquests", controllers.updateAllQuests); // used in playing component to edit
+app.put("/api/updatecompquests", controllers.updateAllQuests); // used in playing component to move quests from one catagory to another
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
