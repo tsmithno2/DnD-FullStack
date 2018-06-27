@@ -13,6 +13,7 @@ set party_id=$2,
     char_inventory= $13,
     char_dm_notes= $14
 where char_id= $1;
+
       
       
       
