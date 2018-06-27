@@ -228,7 +228,33 @@ module.exports = {
       req.body.quest_obtained,
       req.body.quest_completed
     ])
-      .then(quest => {
+      .then(() => {
+        res.status(200);
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).send("error");
+      });
+  },
+
+  updateAllCharacters: (req, res) => {
+    const db = req.app.get("db");
+    db.update_character([
+      req.body.char_id,
+      req.body.char_name,
+      req.body.char_picture,
+      req.body.char_alignment,
+      req.body.char_deity,
+      req.body.char_strength,
+      req.body.char_dexterity,
+      req.body.char_constitution,
+      req.body.char_intelligence,
+      req.body.char_wisdom,
+      req.body.char_charisma,
+      req.body.char_inventory,
+      req.body.char_dm_notes
+    ])
+      .then(() => {
         res.status(200);
       })
       .catch(error => {

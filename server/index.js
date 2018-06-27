@@ -110,6 +110,8 @@ app.post("/api/getobquests", controllers.getObQuests); // used in the playing co
 
 app.post("/api/getcompquests", controllers.getComQuests); // used in playing to get all the completed quests
 
+app.post("/api/createquest", controllers.createNewQuest); // used to create a new quest in the newQuestComponent
+
 app.delete("/api/deletecampaign", controllers.deleteCapaign); // will delete all quests, parties, characters and campaign info associated with camp_id that was passed in by the home companent
 
 app.delete("/api/deletecharacter", controllers.deleteCharacter); // used in the playing component to delete an individual character for a campaign
@@ -118,7 +120,11 @@ app.delete("/api/deletequest", controllers.deleteQuest); // used in the playing 
 
 app.put("/api/updatecampaign", controllers.updateCamapign); //used in the home component to edit the info for a specific campaign
 
-app.post("/api/createquest", controllers.createNewQuest);
+app.put("/api/updatenpcs", controllers.updateAllCharacters); // used in playing component to edit npcs
+
+app.put("/api/updatepartynpcs", controllers.updateAllCharacters);
+
+app.put("/api/updatepcs", controllers.updateAllCharacters);
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
