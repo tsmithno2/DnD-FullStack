@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import EditModal from "./HomeEditComponent";
-
-export default class Campaign extends Component {
+import { connect } from "react-redux";
+import { deleteCampaign } from "../../dux/reducer";
+class Campaign extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -66,3 +67,14 @@ export default class Campaign extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    campaignsList: state.campaignsList
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  { deleteCampaign }
+)(Campaign);
