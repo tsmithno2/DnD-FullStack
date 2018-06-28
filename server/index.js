@@ -25,6 +25,8 @@ massive(CONNECTION_STRING).then(db => {
   app.set("db", db);
 });
 
+app.use(express.static(`${__dirname}/../build`));
+
 app.use(
   // sends cookie to the user
   session({
@@ -132,9 +134,9 @@ app.put("/api/updateobquests", controllers.updateAllQuests); // used in playing 
 
 app.put("/api/updatecompquests", controllers.updateAllQuests); // used in playing component to move quests from one catagory to another
 
-app.put("/api/movetoparty", controllers.moveNpc);
+app.put("/api/movetoparty", controllers.moveNpc); //used in playing to move npcs into the party
 
-app.put("/api/removefromparty", controllers.moveNpc);
+app.put("/api/removefromparty", controllers.moveNpc); //used in playing to move npcs out of the party
 
 app.listen(SERVER_PORT, () =>
   console.log("Server is Listening " + SERVER_PORT)
