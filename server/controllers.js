@@ -301,8 +301,8 @@ module.exports = {
       req.body.char_inventory,
       req.body.char_dm_notes
     ])
-      .then(() => {
-        res.status(200);
+      .then(npc => {
+        res.status(200).send(npc);
       })
       .catch(error => {
         console.log(error);
