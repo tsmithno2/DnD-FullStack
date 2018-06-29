@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../Header/Header";
 import {
   displayCampaigns,
   getParties,
@@ -7,6 +6,7 @@ import {
 } from "../../dux/reducer";
 import { connect } from "react-redux";
 import Campaign from "./Campaign";
+import "./Home.css";
 
 class Home extends Component {
   constructor(props) {
@@ -33,12 +33,10 @@ class Home extends Component {
 
     return (
       <div>
-        <Header />
-
         <h1>Home</h1>
 
         <hr />
-        <div className="CampaignList">
+        <div>
           <h2>List of Campaigns</h2>
           <hr />
         </div>

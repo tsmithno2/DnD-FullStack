@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./HomeComponents.css";
+import "./HomeEditModal.css";
 import axios from "axios";
 
 export default class EditModal extends Component {

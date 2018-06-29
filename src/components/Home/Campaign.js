@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import EditModal from "./HomeEditComponent";
+import EditModal from "./HomeEditModal";
 import { connect } from "react-redux";
 import { deleteCampaign } from "../../dux/reducer";
+import "./Campaign.css";
 class Campaign extends Component {
   constructor(props) {
     super(props);
@@ -22,9 +23,13 @@ class Campaign extends Component {
 
   render() {
     return (
-      <div>
+      <div className="CampaignList">
         <h3>Campaign #{this.props.i + 1}</h3>
-        <img src={this.props.campaign.camp_picture} alt="" />
+        <img
+          className="picture"
+          src={this.props.campaign.camp_picture}
+          alt=""
+        />
         <p>Campign Name: {this.props.campaign.camp_name}</p>
         <p>Quick Description: {this.props.campaign.camp_desc1}</p>
         <Link to={`/playing/${this.props.campaign.camp_id}`}>

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { getUser, displayCampaigns } from "../../dux/reducer";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import "./Header.css";
 
 export class Header extends Component {
   componentDidMount() {
@@ -12,31 +13,28 @@ export class Header extends Component {
     let { username, user_avatar } = this.props.user;
 
     return (
-      <div>
-        <h1>Header</h1>
-
+      <div className="Header">
         {username ? (
-          <div>
-            <p>WELCOME! {username}</p>
-            <img src={user_avatar} alt="" />
+          <div className="UserInfo">
+            <img src={user_avatar} alt="" height="150" width="150" />
+            <h3>Greetings {username}</h3>
           </div>
         ) : (
-          <p>Please login</p>
+          <h3>Please login</h3>
         )}
+        <div className="Buttons">
+          <Link to="/home">
+            <button>Home</button>
+          </Link>
 
-        <Link to="/home">
-          <button>Home</button>
-        </Link>
+          <Link to="/newcampaign">
+            <button>New Campaign</button>
+          </Link>
 
-        <Link to="/newcampaign">
-          <button>New Campaign</button>
-        </Link>
-
-        <Link to="">
-          <button>Log Out</button>
-        </Link>
-
-        <hr />
+          <a href={process.env.REACT_APP_LOGOUT}>
+            <button>Log Out</button>
+          </a>
+        </div>
       </div>
     );
   }

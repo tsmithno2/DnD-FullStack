@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../Header/Header";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import NpcsMapped from "./PlayingComponents/NpcsMapped";
@@ -235,7 +234,6 @@ export default class Playing extends Component {
 
     return (
       <div>
-        <Header />
         {campaignMap}
         <hr />
         <br />

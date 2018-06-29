@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "../../Header/Header";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -59,7 +58,6 @@ export default class NewQuest extends Component {
     console.log("render state ", +this.props.match.params.campaignid);
     return (
       <div>
-        <Header />
         <h1>Create New Quest</h1>
         <p>
           Quest Name{" "}

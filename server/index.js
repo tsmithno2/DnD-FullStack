@@ -84,9 +84,14 @@ app.get("/auth", passport.authenticate("auth0"));
 app.get(
   "/auth/callback",
   passport.authenticate("auth0", {
-    successRedirect: `${process.env.FRONTEND_URL}/home`
+    successRedirect: `${process.env.FRONTEND_URL}home`
   })
 );
+
+app.get("/auth/logout", (req, res) => {
+  req.logOut();
+  res.redirect(`${process.env.FRONTEND_URL}`);
+});
 
 app.get("/auth/user", controllers.getUser); // used in header component to display user info
 

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import Header from "../Header/Header";
 import axios from "axios";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default class NewCharacter extends Component {
   constructor() {
@@ -93,7 +92,6 @@ export default class NewCharacter extends Component {
   render() {
     return (
       <div>
-        <Header />
         <h1>New Character</h1>
         <hr />
         <br />
@@ -221,14 +219,15 @@ export default class NewCharacter extends Component {
             />
           </p>
         </div>
-
-        <button
-          onClick={() => {
-            this.clickSave();
-          }}
-        >
-          Save
-        </button>
+        <Link to={`/playing/${this.state.camp_id}`}>
+          <button
+            onClick={() => {
+              this.clickSave();
+            }}
+          >
+            Save
+          </button>
+        </Link>
         <button onClick={() => this.clickCancel()}> Cancel </button>
       </div>
     );
