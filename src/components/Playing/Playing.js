@@ -240,14 +240,14 @@ export default class Playing extends Component {
         <hr />
         <br />
 
-        <div key="party">
+        <div className="party">
           <h2>Party Members</h2>
           {partyMapped}
           <hr />
           <br />
         </div>
 
-        <div key="npcs">
+        <div className="npcs">
           <h2>NPC's</h2>
           {npcsMapped}
           <hr />

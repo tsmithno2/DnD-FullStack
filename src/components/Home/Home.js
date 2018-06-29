@@ -13,6 +13,7 @@ class Home extends Component {
     super(props);
     this.componentDidMount = this.componentDidMount.bind(this);
   }
+
   componentDidMount() {
     this.props.displayCampaigns();
     this.props.getParties();
