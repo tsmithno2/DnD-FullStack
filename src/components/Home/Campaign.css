@@ -1,3 +1,35 @@
-.picture {
-  position: relative;
+.CampaignCard {
+  font-family: "Montserrat", sans-serif;
+  height: 365px;
+  width: 800px;
+  border: 2px solid black;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  background-color: #e5e5e3;
+}
+
+.CardTitle {
+  font-family: "Merienda", cursive;
+  font-size: 20px;
+  padding-left: 20px;
+}
+
+img {
+  padding-left: 20px;
+}
+
+p {
+  padding-left: 20px;
+}
+
+.CampaignCardButtons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.CampaignCardButtons button {
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  background-color: #1e212b;
+  color: #e5e5e3;
 }

@@ -16,11 +16,11 @@ export class Header extends Component {
       <div className="Header">
         {username ? (
           <div className="UserInfo">
-            <img src={user_avatar} alt="" height="150" width="150" />
-            <h3>Greetings {username}</h3>
+            <img src={user_avatar} alt="" height="100" width="100" />
+            <p>Greetings: {username}</p>
           </div>
         ) : (
-          <h3>Please login</h3>
+          <p>Please login</p>
         )}
         <div className="Buttons">
           <Link to="/home">

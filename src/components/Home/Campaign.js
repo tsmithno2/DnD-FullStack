@@ -23,40 +23,42 @@ class Campaign extends Component {
 
   render() {
     return (
-      <div className="CampaignList">
-        <h3>Campaign #{this.props.i + 1}</h3>
+      <div className="CampaignCard">
+        <p className="CardTitle">{this.props.campaign.camp_name}</p>
         <img
           className="picture"
           src={this.props.campaign.camp_picture}
           alt=""
+          height="200"
+          width="200"
         />
-        <p>Campign Name: {this.props.campaign.camp_name}</p>
         <p>Quick Description: {this.props.campaign.camp_desc1}</p>
-        <Link to={`/playing/${this.props.campaign.camp_id}`}>
-          <button>Continue {this.props.campaign.camp_name}</button>
-        </Link>
-        <Link to={`/newcharacter/${this.props.campaign.camp_id}`}>
-          <button>New Character</button>
-        </Link>
-        <Link to={`/newquest/${this.props.campaign.camp_id}`}>
-          <button>New Quest</button>
-        </Link>
-        <button
-          onClick={() => {
-            this.clickEdit(this.props.campaign.camp_id);
-          }}
-        >
-          Edit
-        </button>
-        <button
-          onClick={() => {
-            this.props.deleteCampaign(this.props.campaign.camp_id);
-          }}
-        >
-          Delete
-        </button>
+        <div className="CampaignCardButtons">
+          <Link to={`/playing/${this.props.campaign.camp_id}`}>
+            <button>Continue {this.props.campaign.camp_name}</button>
+          </Link>
+          <Link to={`/newcharacter/${this.props.campaign.camp_id}`}>
+            <button>New Character</button>
+          </Link>
+          <Link to={`/newquest/${this.props.campaign.camp_id}`}>
+            <button>New Quest</button>
+          </Link>
+          <button
+            onClick={() => {
+              this.clickEdit(this.props.campaign.camp_id);
+            }}
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => {
+              this.props.deleteCampaign(this.props.campaign.camp_id);
+            }}
+          >
+            Delete
+          </button>
+        </div>
 
-        <hr />
         {this.state.showModal ? (
           <EditModal
             clickEdit={this.clickEdit}

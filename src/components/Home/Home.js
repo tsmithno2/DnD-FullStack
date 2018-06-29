@@ -32,15 +32,9 @@ class Home extends Component {
     });
 
     return (
-      <div>
-        <h1>Home</h1>
-
-        <hr />
-        <div>
-          <h2>List of Campaigns</h2>
-          <hr />
-        </div>
-        {campaigns}
+      <div className="Display">
+        <h1>Campaign List</h1>
+        <div className="Campaigns">{campaigns}</div>
       </div>
     );
   }

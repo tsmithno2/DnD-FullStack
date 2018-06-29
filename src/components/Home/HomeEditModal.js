@@ -36,6 +36,16 @@ export default class EditModal extends Component {
     this.props.componentDidMount();
   }
 
+  clickCancel() {
+    this.setState({
+      camp_id: this.props.camp_id,
+      camp_picture: this.props.camp_picture,
+      camp_name: this.props.camp_name,
+      camp_desc1: this.props.camp_desc1,
+      camp_desc2: this.props.camp_desc2
+    });
+  }
+
   render() {
     return (
       <div className={"EditModal"}>
@@ -97,7 +107,6 @@ export default class EditModal extends Component {
             >
               Save Changes
             </button>
-            <button>Cancel</button>
           </div>
         </div>
       </div>

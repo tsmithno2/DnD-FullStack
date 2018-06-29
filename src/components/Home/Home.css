@@ -1,0 +1,19 @@
+h1 {
+  font-family: "Merienda", cursive;
+  display: flex;
+  justify-content: center;
+}
+.Display {
+  height: 100%;
+  background-color: #e5e5e3;
+  color: #08090a;
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+}
+.Campaigns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
