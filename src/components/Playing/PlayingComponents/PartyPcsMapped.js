@@ -75,6 +75,7 @@ export default class PartyPcsMapped extends Component {
   }
 
   render() {
+    console.log("here ", this.state);
     return (
       <div key={`npcs ${this.props.keyi}`}>
         {this.state.editToggle ? (
@@ -142,7 +143,12 @@ export default class PartyPcsMapped extends Component {
           </div>
         ) : (
           <div>
-            <img src={this.state.char_picture} alt="" />
+            <img
+              src={this.state.char_picture}
+              alt=""
+              height="200"
+              width="200"
+            />
             <p>Name: {this.state.char_name}</p>
             <p>Alignment : {this.state.char_alignment} </p>
             <p>Deity : {this.state.char_deity} </p>
@@ -171,7 +177,6 @@ export default class PartyPcsMapped extends Component {
         >
           Save Changes
         </button>
-        <br />
       </div>
     );
   }

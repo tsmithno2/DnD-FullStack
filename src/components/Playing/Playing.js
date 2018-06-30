@@ -7,6 +7,7 @@ import PartyNpcsMapped from "./PlayingComponents/PartyNpcsMapped";
 import UnobQuestsMap from "./PlayingComponents/UnobQuestsMap";
 import ObQuestsMap from "./PlayingComponents/ObQuestsMap";
 import CompQuestsMap from "./PlayingComponents/CompQuestsMap";
+import "./Playing.css";
 
 //this.props.match.params aways a string passed in in home on the button. relates to the campaign id which will
 //+this.props.match.params if a number,
@@ -96,9 +97,9 @@ export default class Playing extends Component {
   render() {
     let campaignMap = this.state.campaign.map(campaign => {
       return (
-        <div key={"displayed campaign"}>
-          <h1>Playing {campaign.camp_name}</h1>
-          <img src={campaign.camp_picture} alt="" />
+        <div>
+          <h2>Playing {campaign.camp_name}</h2>
+          <img src={campaign.camp_picture} alt="" height="300" width="300" />
           <p>Full Description: {campaign.camp_desc2}</p>
         </div>
       );
@@ -107,7 +108,7 @@ export default class Playing extends Component {
     let partyMapped = this.state.party.map((party, i) => {
       if (party.party_id !== null && party.char_pc === true) {
         return (
-          <div key={`PCs ${i}`}>
+          <div className="StandardCard">
             <PartyPcsMapped
               char_id={party.char_id}
               char_picture={party.char_picture}
@@ -129,7 +130,7 @@ export default class Playing extends Component {
         );
       } else if (party.party_id !== null && party.char_pc === false) {
         return (
-          <div key={`partyNpcs ${i + 1}`}>
+          <div key={i} className="StandardCard">
             <PartyNpcsMapped
               char_id={party.char_id}
               char_picture={party.char_picture}
@@ -156,7 +157,7 @@ export default class Playing extends Component {
 
     let npcsMapped = this.state.allOtherCharacters.map((npcs, i) => {
       return (
-        <div key={i}>
+        <div className="StandardCard">
           <NpcsMapped
             char_id={npcs.char_id}
             char_picture={npcs.char_picture}
@@ -183,7 +184,7 @@ export default class Playing extends Component {
 
     let unobQuestsMapped = this.state.unobtainedQuests.map((quest, i) => {
       return (
-        <div key={i}>
+        <div className="QuestCard">
           <UnobQuestsMap
             quest_id={quest.quest_id}
             quest_name={quest.quest_name}
@@ -200,7 +201,7 @@ export default class Playing extends Component {
 
     let obQuestsMapped = this.state.obQuests.map((quest, i) => {
       return (
-        <div key={"ob " + i}>
+        <div className="QuestCard">
           <ObQuestsMap
             quest_id={quest.quest_id}
             quest_name={quest.quest_name}
@@ -217,7 +218,7 @@ export default class Playing extends Component {
 
     let comQuestsMapped = this.state.completedQuests.map((quest, i) => {
       return (
-        <div key={"com " + i}>
+        <div className="QuestCard">
           <CompQuestsMap
             quest_id={quest.quest_id}
             quest_name={quest.quest_name}
@@ -231,49 +232,55 @@ export default class Playing extends Component {
         </div>
       );
     });
-
+    console.log(this.state);
     return (
-      <div>
-        {campaignMap}
-        <hr />
-        <br />
-
-        <div className="party">
-          <h2>Party Members</h2>
-          {partyMapped}
-          <hr />
-          <br />
+      <div className="FullDisplay">
+        <div className="TopBit">
+          <div className="CampInfo">{campaignMap}</div>
         </div>
 
-        <div className="npcs">
-          <h2>NPC's</h2>
-          {npcsMapped}
-          <hr />
-          <br />
-        </div>
+        <div className="LeftVsRight">
+          <div className="Left">
+            <div className="party">
+              <h2>Party Members</h2>
+              {partyMapped}
 
-        <div className="Quests">
-          <h2>Quests</h2>
-          <Link to={`/newquest/${+this.props.match.params.campaignid}`}>
-            <button>New Quest</button>
-          </Link>
-          <hr />
-          <div key="Unobtained Quests">
-            <h3>Unobtained Quests</h3>
-            {unobQuestsMapped}
+              <br />
+            </div>
+          </div>
+          <div className="npcs">
+            <h2>NPC's</h2>
+            {npcsMapped}
+
             <br />
           </div>
+          <div className="Right">
+            <div className="QuestsMapped">
+              <div>
+                <h2>Quests</h2>
+                <Link to={`/newquest/${+this.props.match.params.campaignid}`}>
+                  <button>New Quest</button>
+                </Link>
+              </div>
 
-          <div key="Obtained Quests">
-            <h3>Obtained Quests</h3>
-            {obQuestsMapped}
-            <br />
-          </div>
+              <div key="Quests">
+                <h3>Unobtained Quests</h3>
+                {unobQuestsMapped}
+                <br />
+              </div>
 
-          <div key="Completed Quests">
-            <h3>Completed Quests</h3>
-            {comQuestsMapped}
-            <br />
+              <div key="Quests">
+                <h3>Obtained Quests</h3>
+                {obQuestsMapped}
+                <br />
+              </div>
+
+              <div key="Quests">
+                <h3>Completed Quests</h3>
+                {comQuestsMapped}
+                <br />
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -100,7 +100,12 @@ export default class UnobQuestsMap extends Component {
           </div>
         ) : (
           <div>
-            <img src={this.state.quest_picture} alt="" />
+            <img
+              src={this.state.quest_picture}
+              alt=""
+              height="200"
+              width="200"
+            />
             <p>Quest Name</p>
             <p>{this.state.quest_name}</p>
             <p>Quest Description</p>

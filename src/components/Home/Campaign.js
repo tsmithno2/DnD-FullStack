@@ -26,7 +26,6 @@ class Campaign extends Component {
       <div className="CampaignCard">
         <p className="CardTitle">{this.props.campaign.camp_name}</p>
         <img
-          className="picture"
           src={this.props.campaign.camp_picture}
           alt=""
           height="200"

@@ -1,0 +1,82 @@
+.StandardCard {
+  font-family: "Montserrat", sans-serif;
+  height: 700px;
+  width: 370px;
+  border: 2px solid black;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  background-color: #e5e5e3;
+  box-shadow: 10px 10px 10px grey;
+  display: flex;
+  align-items: flex-start;
+}
+
+.StandardCard img {
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 10%;
+}
+
+.StandardCard button {
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  background-color: #1e212b;
+  color: #e5e5e3;
+}
+
+.QuestCard {
+  font-family: "Montserrat", sans-serif;
+  height: 450px;
+  width: 600px;
+  border: 2px solid black;
+  border-radius: 30px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  background-color: #e5e5e3;
+  box-shadow: 10px 10px 10px grey;
+  display: flex;
+  align-items: flex-start;
+}
+
+.QuestCard button {
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  background-color: #1e212b;
+  color: #e5e5e3;
+}
+
+.QuestCard img {
+  margin-top: 20px;
+  margin-left: 20px;
+  border-radius: 10%;
+}
+
+.LeftVsRight {
+  display: flex;
+  justify-content: space-around;
+}
+
+.TopBit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.CampInfo {
+  height: 500px;
+  width: 350px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.CampInfo h2 {
+  font-family: "Merienda", cursive;
+  display: flex;
+  justify-content: center;
+}
+
+.CampInfo p {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+}

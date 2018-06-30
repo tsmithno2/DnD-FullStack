@@ -164,7 +164,12 @@ export default class PartyNpcsMapped extends Component {
           </div>
         ) : (
           <div>
-            <img src={this.state.char_picture} alt="" />
+            <img
+              src={this.state.char_picture}
+              alt=""
+              height="200"
+              width="200"
+            />
             <p>Name: {this.state.char_name}</p>
             <p>Alignment : {this.state.char_alignment} </p>
             <p>Deity : {this.state.char_deity} </p>
@@ -186,13 +191,7 @@ export default class PartyNpcsMapped extends Component {
         >
           Delete
         </button>
-        <button
-          onClick={() => {
-            this.removeFromParty();
-          }}
-        >
-          Remove From Party
-        </button>
+
         <button
           onClick={() => {
             this.clickSave();
@@ -200,7 +199,13 @@ export default class PartyNpcsMapped extends Component {
         >
           Save Changes
         </button>
-        <br />
+        <button
+          onClick={() => {
+            this.removeFromParty();
+          }}
+        >
+          Remove From Party
+        </button>
       </div>
     );
   }
