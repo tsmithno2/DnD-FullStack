@@ -5,7 +5,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #1e212b;
+  background-color: #323e55;
 }
 .UserInfo {
   width: 40%;
@@ -32,6 +32,6 @@
 }
 .Buttons button {
   border-radius: 5px;
-  background-color: #1e212b;
+  background-color: #323e55;
   color: #e5e5e3;
 }

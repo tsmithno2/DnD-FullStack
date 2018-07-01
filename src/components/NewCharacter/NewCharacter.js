@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-
+import "./NewCharacter.css";
 export default class NewCharacter extends Component {
   constructor() {
     super();
@@ -91,12 +91,9 @@ export default class NewCharacter extends Component {
 
   render() {
     return (
-      <div>
-        <h1>New Character</h1>
-        <hr />
-        <br />
-        <div>
-          {" "}
+      <div className="OuterDiv">
+        <div className="NewCharacterCard">
+          <p className="Title">New Character</p>
           <p>
             NPC
             <input
@@ -147,12 +144,6 @@ export default class NewCharacter extends Component {
               onChange={e => this.setState({ deity: e.target.value })}
             />
           </p>
-        </div>
-
-        <div>
-          <br />
-          <p>Character Sheet</p>
-
           <p>
             Strength{" "}
             <input
@@ -160,7 +151,6 @@ export default class NewCharacter extends Component {
               onChange={e => this.setState({ strength: e.target.value })}
             />
           </p>
-
           <p>
             Dexterity{" "}
             <input
@@ -168,7 +158,6 @@ export default class NewCharacter extends Component {
               onChange={e => this.setState({ dexterity: e.target.value })}
             />
           </p>
-
           <p>
             Constitution{" "}
             <input
@@ -176,7 +165,6 @@ export default class NewCharacter extends Component {
               onChange={e => this.setState({ constitution: e.target.value })}
             />
           </p>
-
           <p>
             Intelligence{" "}
             <input
@@ -184,7 +172,6 @@ export default class NewCharacter extends Component {
               onChange={e => this.setState({ intelligence: e.target.value })}
             />
           </p>
-
           <p>
             Wisdom{" "}
             <input
@@ -192,7 +179,6 @@ export default class NewCharacter extends Component {
               onChange={e => this.setState({ wisdom: e.target.value })}
             />
           </p>
-
           <p>
             Charisma{" "}
             <input
@@ -200,35 +186,34 @@ export default class NewCharacter extends Component {
               onChange={e => this.setState({ charisma: e.target.value })}
             />
           </p>
-          <br />
-        </div>
-        <div>
-          {" "}
           <p>
-            Inventory{" "}
-            <input
+            Inventory
+            <textarea
+              rows={4}
               value={this.state.inventory}
               onChange={e => this.setState({ inventory: e.target.value })}
             />
           </p>
           <p>
-            Notes{" "}
-            <input
+            Notes
+            <textarea
               value={this.state.notes}
               onChange={e => this.setState({ notes: e.target.value })}
             />
           </p>
+          <div>
+            <Link to={`/playing/${this.state.camp_id}`}>
+              <button
+                onClick={() => {
+                  this.clickSave();
+                }}
+              >
+                Save
+              </button>
+            </Link>
+            <button onClick={() => this.clickCancel()}> Cancel </button>
+          </div>
         </div>
-        <Link to={`/playing/${this.state.camp_id}`}>
-          <button
-            onClick={() => {
-              this.clickSave();
-            }}
-          >
-            Save
-          </button>
-        </Link>
-        <button onClick={() => this.clickCancel()}> Cancel </button>
       </div>
     );
   }

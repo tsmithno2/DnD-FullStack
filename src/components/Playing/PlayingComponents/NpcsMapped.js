@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import "../Playing.css";
 
 export default class NpcsMapped extends Component {
   constructor(props) {
@@ -105,67 +106,103 @@ export default class NpcsMapped extends Component {
     return (
       <div key={`npcs ${this.props.keyi}`}>
         {this.state.editToggle ? (
-          <div>
-            <input
-              name="char_picture"
-              value={this.state.char_picture}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_name"
-              value={this.state.char_name}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_alignment"
-              value={this.state.char_alignment}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_deity"
-              value={this.state.char_deity}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_strength"
-              value={this.state.char_strength}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_dexterity"
-              value={this.state.char_dexterity}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_constitution"
-              value={this.state.char_constitution}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_intelligence"
-              value={this.state.char_intelligence}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_wisdom"
-              value={this.state.char_wisdom}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_charisma"
-              value={this.state.char_charisma}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_inventory"
-              value={this.state.char_inventory}
-              onChange={this.handleChange}
-            />
-            <input
-              name="char_dm_notes"
-              value={this.state.char_dm_notes}
-              onChange={this.handleChange}
-            />
+          <div className="Editing">
+            <p>
+              Picture:{" "}
+              <input
+                name="char_picture"
+                value={this.state.char_picture}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Name:{" "}
+              <input
+                name="char_name"
+                value={this.state.char_name}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Alignment :{" "}
+              <input
+                name="char_alignment"
+                value={this.state.char_alignment}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Deity :{" "}
+              <input
+                name="char_deity"
+                value={this.state.char_deity}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Strength :{" "}
+              <input
+                name="char_strength"
+                value={this.state.char_strength}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Dexterity :{" "}
+              <input
+                name="char_dexterity"
+                value={this.state.char_dexterity}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Constitution :{" "}
+              <input
+                name="char_constitution"
+                value={this.state.char_constitution}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Intelligence :{" "}
+              <input
+                name="char_intelligence"
+                value={this.state.char_intelligence}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Wisdom :{" "}
+              <input
+                name="char_wisdom"
+                value={this.state.char_wisdom}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Charisma :{" "}
+              <input
+                name="char_charisma"
+                value={this.state.char_charisma}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Inventory :{" "}
+              <input
+                name="char_inventory"
+                value={this.state.char_inventory}
+                onChange={this.handleChange}
+              />
+            </p>
+            <p>
+              Notes :{" "}
+              <input
+                name="char_dm_notes"
+                value={this.state.char_dm_notes}
+                onChange={this.handleChange}
+              />
+            </p>
           </div>
         ) : (
           <div>

@@ -81,21 +81,30 @@ export default class UnobQuestsMap extends Component {
       <div key={`unob ${this.props.keyi}`}>
         {this.state.editToggle ? (
           <div>
-            <input
-              name="quest_name"
-              value={this.state.quest_name}
-              onChange={this.handleChange}
-            />
-            <input
-              name="quest_description"
-              value={this.state.quest_description}
-              onChange={this.handleChange}
-            />
-            <input
-              name="quest_picture"
-              value={this.state.quest_picture}
-              onChange={this.handleChange}
-            />
+            <h3>Quest Picture</h3>
+            <p>
+              <input
+                name="quest_picture"
+                value={this.state.quest_picture}
+                onChange={this.handleChange}
+              />
+            </p>
+            <h3>Quest Name</h3>
+            <p>
+              <input
+                name="quest_name"
+                value={this.state.quest_name}
+                onChange={this.handleChange}
+              />
+            </p>
+            <h3>Quest Description</h3>
+            <p>
+              <input
+                name="quest_description"
+                value={this.state.quest_description}
+                onChange={this.handleChange}
+              />
+            </p>
           </div>
         ) : (
           <div>

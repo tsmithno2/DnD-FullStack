@@ -18,15 +18,16 @@
 }
 
 .StandardCard button {
+  margin-left: 20px;
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
-  background-color: #1e212b;
+  background-color: #323e55;
   color: #e5e5e3;
 }
 
 .QuestCard {
   font-family: "Montserrat", sans-serif;
-  height: 450px;
+  height: 465px;
   width: 600px;
   border: 2px solid black;
   border-radius: 30px;
@@ -39,9 +40,10 @@
 }
 
 .QuestCard button {
+  margin-left: 20px;
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
-  background-color: #1e212b;
+  background-color: #323e55;
   color: #e5e5e3;
 }
 
@@ -79,4 +81,35 @@
   font-family: "Montserrat", sans-serif;
   display: flex;
   justify-content: center;
+}
+
+.QuestsMapped button {
+  margin-left: 20px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  background-color: #323e55;
+  color: #e5e5e3;
+}
+
+.QuestsMapped h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.QuestsMapped h3 {
+  margin-left: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.Party h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.Npcs h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
+.Editing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }

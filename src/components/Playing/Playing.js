@@ -241,14 +241,14 @@ export default class Playing extends Component {
 
         <div className="LeftVsRight">
           <div className="Left">
-            <div className="party">
+            <div className="Party">
               <h2>Party Members</h2>
               {partyMapped}
 
               <br />
             </div>
           </div>
-          <div className="npcs">
+          <div className="Npcs">
             <h2>NPC's</h2>
             {npcsMapped}
 
