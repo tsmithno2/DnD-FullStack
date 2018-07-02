@@ -9,6 +9,7 @@
   display: flex;
   align-items: flex-start;
   padding: 20px;
+  margin-left: 20px;
 }
 
 .StandardCard img {

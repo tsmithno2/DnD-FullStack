@@ -97,7 +97,7 @@ export default class Playing extends Component {
   render() {
     let campaignMap = this.state.campaign.map(campaign => {
       return (
-        <div>
+        <div key="CampMap">
           <h2>Playing {campaign.camp_name}</h2>
           <img src={campaign.camp_picture} alt="" height="300" width="300" />
           <p>Full Description: {campaign.camp_desc2}</p>
@@ -108,7 +108,7 @@ export default class Playing extends Component {
     let partyMapped = this.state.party.map((party, i) => {
       if (party.party_id !== null && party.char_pc === true) {
         return (
-          <div className="StandardCard">
+          <div key={i} className="StandardCard">
             <PartyPcsMapped
               char_id={party.char_id}
               char_picture={party.char_picture}
@@ -125,12 +125,13 @@ export default class Playing extends Component {
               char_dm_notes={party.char_dm_notes}
               keyi={i}
               handleDelete={this.handleDelete}
+              componentDidMount={this.componentDidMount}
             />
           </div>
         );
       } else if (party.party_id !== null && party.char_pc === false) {
         return (
-          <div key={i} className="StandardCard">
+          <div key={"party npc" + i} className="StandardCard">
             <PartyNpcsMapped
               char_id={party.char_id}
               char_picture={party.char_picture}
@@ -149,6 +150,7 @@ export default class Playing extends Component {
               char_dm_notes={party.char_dm_notes}
               keyi={i}
               handleDelete={this.handleDelete}
+              componentDidMount={this.componentDidMount}
             />
           </div>
         );
@@ -157,7 +159,7 @@ export default class Playing extends Component {
 
     let npcsMapped = this.state.allOtherCharacters.map((npcs, i) => {
       return (
-        <div className="StandardCard">
+        <div key={"npc " + i} className="StandardCard">
           <NpcsMapped
             char_id={npcs.char_id}
             char_picture={npcs.char_picture}
@@ -177,6 +179,7 @@ export default class Playing extends Component {
             char_dm_notes={npcs.char_dm_notes}
             keyi={i}
             handleDelete={this.handleDelete}
+            componentDidMount={this.componentDidMount}
           />
         </div>
       );
@@ -184,7 +187,7 @@ export default class Playing extends Component {
 
     let unobQuestsMapped = this.state.unobtainedQuests.map((quest, i) => {
       return (
-        <div className="QuestCard">
+        <div key={"unobQuests " + i} className="QuestCard">
           <UnobQuestsMap
             quest_id={quest.quest_id}
             quest_name={quest.quest_name}
@@ -194,6 +197,7 @@ export default class Playing extends Component {
             quest_completed={quest.quest_completed}
             keyi={i}
             handleDeleteQuest={this.handleDeleteQuest}
+            componentDidMount={this.componentDidMount}
           />
         </div>
       );
@@ -201,7 +205,7 @@ export default class Playing extends Component {
 
     let obQuestsMapped = this.state.obQuests.map((quest, i) => {
       return (
-        <div className="QuestCard">
+        <div key={"obQuests" + i} className="QuestCard">
           <ObQuestsMap
             quest_id={quest.quest_id}
             quest_name={quest.quest_name}
@@ -211,6 +215,7 @@ export default class Playing extends Component {
             quest_completed={quest.quest_completed}
             keyi={i}
             handleDeleteQuest={this.handleDeleteQuest}
+            componentDidMount={this.componentDidMount}
           />
         </div>
       );
@@ -218,7 +223,7 @@ export default class Playing extends Component {
 
     let comQuestsMapped = this.state.completedQuests.map((quest, i) => {
       return (
-        <div className="QuestCard">
+        <div key={"compQuests" + i} className="QuestCard">
           <CompQuestsMap
             quest_id={quest.quest_id}
             quest_name={quest.quest_name}
@@ -228,11 +233,11 @@ export default class Playing extends Component {
             quest_completed={quest.quest_completed}
             keyi={i}
             handleDeleteQuest={this.handleDeleteQuest}
+            componentDidMount={this.componentDidMount}
           />
         </div>
       );
     });
-    console.log(this.state);
     return (
       <div className="FullDisplay">
         <div className="TopBit">
@@ -269,13 +274,13 @@ export default class Playing extends Component {
                 <br />
               </div>
 
-              <div key="Quests">
+              <div key="ObQuests">
                 <h3>Obtained Quests</h3>
                 {obQuestsMapped}
                 <br />
               </div>
 
-              <div key="Quests">
+              <div key="CompQuests">
                 <h3>Completed Quests</h3>
                 {comQuestsMapped}
                 <br />

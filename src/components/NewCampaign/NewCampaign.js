@@ -24,7 +24,7 @@ class NewCampaign extends Component {
     });
   }
 
-  clickSavee() {
+  clickSave() {
     this.props.createCampaign({
       camp_name: this.state.camp_name,
       camp_desc1: this.state.camp_desc1,

@@ -56,6 +56,7 @@ module.exports = {
   },
 
   createNewCampaign: (req, res) => {
+    console.log("we got here");
     const db = req.app.get("db");
     db.create_new_campaign([
       req.user.user_id,

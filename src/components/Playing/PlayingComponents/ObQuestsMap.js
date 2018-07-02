@@ -64,6 +64,7 @@ export default class UnobQuestsMap extends Component {
       quest_obtained: false,
       quest_completed: false
     });
+    this.props.componentDidMount();
   }
 
   moveQuestToCompleted() {
@@ -75,6 +76,7 @@ export default class UnobQuestsMap extends Component {
       quest_obtained: true,
       quest_completed: true
     });
+    this.props.componentDidMount();
   }
 
   render() {

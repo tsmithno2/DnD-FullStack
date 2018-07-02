@@ -95,6 +95,7 @@ export default class PartyNpcsMapped extends Component {
       char_dm_notes: this.state.char_dm_notes,
       editToggle: false
     });
+    this.props.componentDidMount();
   }
 
   render() {

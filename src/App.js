@@ -10,7 +10,7 @@ class App extends Component {
       <div className="WholeSite">
         {this.props.location.pathname === "/" ? null : <Header />}
 
-        <div>{routes}</div>
+        <div key="Routes">{routes}</div>
       </div>
     );
   }
