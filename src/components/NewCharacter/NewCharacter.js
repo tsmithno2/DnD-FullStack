@@ -115,6 +115,7 @@ export default class NewCharacter extends Component {
               value={this.state.name}
               onChange={e => this.setState({ name: e.target.value })}
             />
+            <button>Random Name</button>
           </p>
           <p>
             Gender:
