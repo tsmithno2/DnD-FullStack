@@ -7,21 +7,16 @@
   margin-bottom: 30px;
   background-color: #e5e5e3;
   box-shadow: 10px 10px 10px grey;
+  padding: 20px;
 }
 
 .CardTitle {
   font-family: "Merienda", cursive;
   font-size: 20px;
-  margin-left: 20px;
 }
 
 .CampaignCard img {
-  margin-left: 20px;
   border-radius: 10%;
-}
-
-p {
-  margin-left: 20px;
 }
 
 .CampaignCardButtons {

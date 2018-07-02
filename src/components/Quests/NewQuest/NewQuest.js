@@ -62,21 +62,21 @@ export default class NewQuest extends Component {
         <div className="NewQuestCard">
           <h1>Create New Quest</h1>
           <p>
-            Quest Name
+            Quest Name:
             <input
               value={this.state.quest_name}
               onChange={e => this.setState({ quest_name: e.target.value })}
             />
           </p>
           <p>
-            Quest Picture
+            Quest Picture:
             <input
               value={this.state.quest_picture}
               onChange={e => this.setState({ quest_picture: e.target.value })}
             />
           </p>
           <p>
-            Quest Description
+            Quest Description:
             <input
               value={this.state.quest_description}
               onChange={e =>

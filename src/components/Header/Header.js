@@ -3,6 +3,7 @@ import { getUser, displayCampaigns } from "../../dux/reducer";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import Token from "./dm_dash_logo_temp_for_real_TOKEN.png";
 
 export class Header extends Component {
   componentDidMount() {
@@ -24,7 +25,7 @@ export class Header extends Component {
         )}
         <div className="Buttons">
           <Link to="/home">
-            <button>Home</button>
+            <img src={Token} alt="" width="100" />
           </Link>
 
           <Link to="/newcampaign">

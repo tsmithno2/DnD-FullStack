@@ -1,6 +1,5 @@
 .StandardCard {
   font-family: "Montserrat", sans-serif;
-  height: 700px;
   width: 370px;
   border: 2px solid black;
   border-radius: 30px;
@@ -9,11 +8,10 @@
   box-shadow: 10px 10px 10px grey;
   display: flex;
   align-items: flex-start;
+  padding: 20px;
 }
 
 .StandardCard img {
-  margin-top: 20px;
-  margin-left: 20px;
   border-radius: 10%;
 }
 
@@ -27,7 +25,6 @@
 
 .QuestCard {
   font-family: "Montserrat", sans-serif;
-  height: 465px;
   width: 600px;
   border: 2px solid black;
   border-radius: 30px;
@@ -37,6 +34,7 @@
   box-shadow: 10px 10px 10px grey;
   display: flex;
   align-items: flex-start;
+  padding: 20px;
 }
 
 .QuestCard button {
@@ -48,8 +46,6 @@
 }
 
 .QuestCard img {
-  margin-top: 20px;
-  margin-left: 20px;
   border-radius: 10%;
 }
 

@@ -201,6 +201,7 @@ export default class PartyNpcsMapped extends Component {
           </div>
         ) : (
           <div>
+            <p>NPC</p>
             <img
               src={this.state.char_picture}
               alt=""

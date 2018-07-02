@@ -95,7 +95,7 @@ export default class NewCharacter extends Component {
         <div className="NewCharacterCard">
           <p className="Title">New Character</p>
           <p>
-            NPC
+            NPC:
             <input
               value={this.state.NPC}
               onChange={() => this.setState({ NPC: !this.state.NPC })}
@@ -103,91 +103,91 @@ export default class NewCharacter extends Component {
             />
           </p>
           <p>
-            Picture{" "}
+            Picture:
             <input
               value={this.state.picture}
               onChange={e => this.setState({ picture: e.target.value })}
             />
           </p>
           <p>
-            Character Name{" "}
+            Character Name:
             <input
               value={this.state.name}
               onChange={e => this.setState({ name: e.target.value })}
             />
           </p>
           <p>
-            Gender{" "}
+            Gender:
             <input
               value={this.state.gender}
               onChange={e => this.setState({ gender: e.target.value })}
             />
           </p>
           <p>
-            Class{" "}
+            Class:
             <input
               value={this.state.class}
               onChange={e => this.setState({ class: e.target.value })}
             />
           </p>
           <p>
-            Alignment{" "}
+            Alignment:
             <input
               value={this.state.alignment}
               onChange={e => this.setState({ alignment: e.target.value })}
             />
           </p>
           <p>
-            Deity{" "}
+            Deity:
             <input
               value={this.state.deity}
               onChange={e => this.setState({ deity: e.target.value })}
             />
           </p>
           <p>
-            Strength{" "}
+            Strength:
             <input
               value={this.state.strength}
               onChange={e => this.setState({ strength: e.target.value })}
             />
           </p>
           <p>
-            Dexterity{" "}
+            Dexterity:
             <input
               value={this.state.dexterity}
               onChange={e => this.setState({ dexterity: e.target.value })}
             />
           </p>
           <p>
-            Constitution{" "}
+            Constitution:
             <input
               value={this.state.constitution}
               onChange={e => this.setState({ constitution: e.target.value })}
             />
           </p>
           <p>
-            Intelligence{" "}
+            Intelligence:
             <input
               value={this.state.intelligence}
               onChange={e => this.setState({ intelligence: e.target.value })}
             />
           </p>
           <p>
-            Wisdom{" "}
+            Wisdom:
             <input
               value={this.state.wisdom}
               onChange={e => this.setState({ wisdom: e.target.value })}
             />
           </p>
           <p>
-            Charisma{" "}
+            Charisma:
             <input
               value={this.state.charisma}
               onChange={e => this.setState({ charisma: e.target.value })}
             />
           </p>
           <p>
-            Inventory
+            Inventory:
             <textarea
               rows={4}
               value={this.state.inventory}
@@ -195,7 +195,7 @@ export default class NewCharacter extends Component {
             />
           </p>
           <p>
-            Notes
+            Notes:
             <textarea
               value={this.state.notes}
               onChange={e => this.setState({ notes: e.target.value })}

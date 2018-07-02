@@ -1,6 +1,7 @@
 .WholePageDisplay {
   display: flex;
   justify-content: center;
+  height: 90vh;
 }
 
 .NewCampaignCard {
@@ -13,6 +14,7 @@
   margin-top: 30px;
   background-color: #e5e5e3;
   box-shadow: 10px 10px 10px grey;
+  padding: 20px;
 }
 
 .WholePageDisplay button {
@@ -20,5 +22,5 @@
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   background-color: #323e55;
-  color: #e5e5e3;
+  color: white;
 }
