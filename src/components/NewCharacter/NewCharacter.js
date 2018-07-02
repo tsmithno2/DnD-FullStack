@@ -187,21 +187,25 @@ export default class NewCharacter extends Component {
               onChange={e => this.setState({ charisma: e.target.value })}
             />
           </p>
-          <p>
+          <div>
             Inventory:
-            <textarea
-              rows={4}
-              value={this.state.inventory}
-              onChange={e => this.setState({ inventory: e.target.value })}
-            />
-          </p>
-          <p>
+            <p>
+              <textarea
+                rows={4}
+                value={this.state.inventory}
+                onChange={e => this.setState({ inventory: e.target.value })}
+              />
+            </p>
+          </div>
+          <div>
             Notes:
-            <textarea
-              value={this.state.notes}
-              onChange={e => this.setState({ notes: e.target.value })}
-            />
-          </p>
+            <p>
+              <textarea
+                value={this.state.notes}
+                onChange={e => this.setState({ notes: e.target.value })}
+              />
+            </p>
+          </div>
           <div>
             <Link to={`/playing/${this.state.camp_id}`}>
               <button
