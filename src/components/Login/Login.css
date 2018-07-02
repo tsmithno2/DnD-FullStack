@@ -1,5 +1,65 @@
 .LogInPage {
   height: 100vh;
-  background-color: #1e212b;
-  margin-top: -25px;
+  width: 100vw;
+  background-color: #323e55;
+  color: #e5e5e3;
+  margin-top: 0px;
+}
+
+.WebsiteTitle {
+  font-size: 40px;
+}
+
+.DisplayInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.LoginButton button {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  background-color: #323e55;
+  color: #e5e5e3;
+}
+
+.Logo {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+}
+.Description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Montserrat", sans-serif;
+  margin: 0 auto;
+}
+
+.WelcomeLine {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10px;
+  font-size: 30px;
+  font-family: "Merienda", cursive;
+}
+.DescriptionLine {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10px;
+  font-size: 25px;
+}
+.LoginLine {
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 25px;
 }

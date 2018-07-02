@@ -48,27 +48,17 @@ export default class EditModal extends Component {
 
   render() {
     return (
-      <div className={"EditModal"}>
-        <div className={"Modal"}>
-          <button
-            className="ButtonX"
-            onClick={() => {
-              this.props.clickEdit();
-            }}
-          >
-            X
-          </button>
-          <div className="inputs">
-            <h2>Edit {this.state.camp_name}</h2>
+      <div className="EditModal">
+        <div className="Modal">
+          <div className="Inputs">
+            <h2 className="EditModalTitle">Edit {this.state.camp_name}</h2>
             <p>
               Campaign Picture (URL's ONLY):
-              <br />
               <input
                 value={this.state.camp_picture}
                 onChange={e => this.setState({ camp_picture: e.target.value })}
               />
             </p>
-            <br />
 
             <p>
               Campaign Name:
@@ -78,17 +68,14 @@ export default class EditModal extends Component {
                 onChange={e => this.setState({ camp_name: e.target.value })}
               />
             </p>
-            <br />
 
             <p>
               One Senence Campaign Description:
-              <br />
               <input
                 value={this.props.camp_desc1}
                 onChange={e => this.setState({ camp_desc1: e.target.value })}
               />
             </p>
-            <br />
 
             <p>
               Full Campaign Description:
@@ -98,14 +85,24 @@ export default class EditModal extends Component {
                 onChange={e => this.setState({ camp_desc2: e.target.value })}
               />
             </p>
+          </div>
 
-            <br />
+          <div className="ModalButtons">
             <button
+              className="SaveChangesButton"
               onClick={() => {
                 this.clickSave();
               }}
             >
               Save Changes
+            </button>
+            <button
+              className="ButtonX"
+              onClick={() => {
+                this.props.clickEdit();
+              }}
+            >
+              Exit Not Saving Changes
             </button>
           </div>
         </div>

@@ -1,17 +1,44 @@
 .EditModal {
   position: fixed;
   background-color: #808080e0;
-  height: 100%;
-  width: 100vw;
+  height: 100vw;
+  width: 100%;
   top: 0;
+  left: 0;
 }
 
 .Modal {
   position: absolute;
-  background-color: white;
+  background-color: #e5e5e3;
   width: 30%;
-  height: 75%;
-  top: 50%;
+  height: 38%;
+  top: 32%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 2px solid black;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.EditModalTitle {
+  display: Flex;
+  justify-content: center;
+}
+
+.Inputs input {
+  margin-top: 5px;
+  width: 93%;
+  border: 0.5px solid black;
+}
+
+.Modal button {
+  border-radius: 5px;
+  background-color: #323e55;
+  color: white;
+}
+
+.ModalButtons {
+  display: flex;
+  justify-content: space-around;
 }
