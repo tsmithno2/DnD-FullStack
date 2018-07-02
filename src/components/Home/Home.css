@@ -4,7 +4,7 @@ h1 {
   justify-content: center;
 }
 .Display {
-  height: 100%;
+  height: 100vh;
   background-color: #e5e5e3;
   color: black;
   display: flex;

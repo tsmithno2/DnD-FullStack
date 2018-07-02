@@ -62,56 +62,56 @@ values
 insert into characters 
 (party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
 values
-(1, 1, false, true, 'bob', 'https://i.pinimg.com/originals/15/b3/c5/15b3c54a0224c0357ae2430ed7756b5c.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+(1, 1, false, true, 'Orc', 'https://i.pinimg.com/originals/15/b3/c5/15b3c54a0224c0357ae2430ed7756b5c.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
 
 insert into characters
 (party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
 values
-(1, 1, false, true, 'drew', 'https://i.pinimg.com/736x/07/e9/b6/07e9b6e117db8d955cbbbe207f147de1--female-orc-female-knight.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+(1, 1, false, true, 'Drew', 'https://i.pinimg.com/736x/07/e9/b6/07e9b6e117db8d955cbbbe207f147de1--female-orc-female-knight.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
 -- npcs non in party=============================================
 
 insert into characters
 (party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
 values
-(null, 1, true, false, 'stacy', 'https://i.pinimg.com/originals/c4/ac/e9/c4ace97a0a140586a3eacee6dd2bd247.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+(null, 1, true, false, 'Robert', 'https://i.pinimg.com/originals/c4/ac/e9/c4ace97a0a140586a3eacee6dd2bd247.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
 
 insert into characters 
 (party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
 values
-(null, 1, true, false, 'greg', 'https://i.pinimg.com/236x/4d/02/d0/4d02d067ad29802d5995c2a35c00a54a--cg-art-fantasy-characters.jpg', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+(null, 1, true, false, 'Greg', 'https://i.pinimg.com/236x/4d/02/d0/4d02d067ad29802d5995c2a35c00a54a--cg-art-fantasy-characters.jpg', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
 
 insert into characters
 (party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
 values
-(null, 1, true, false, 'ronald', 'https://i.pinimg.com/originals/6c/88/68/6c886827260df362763886d57603cf92.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+(null, 1, true, false, 'Ronald', 'https://i.pinimg.com/originals/6c/88/68/6c886827260df362763886d57603cf92.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
 -- camp 2 =========================================
 insert into characters 
 (party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
 values
-(2, 2, false, true, 'bob', 'https://i.pinimg.com/originals/15/b3/c5/15b3c54a0224c0357ae2430ed7756b5c.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+(2, 2, false, true, 'Orc', 'https://i.pinimg.com/originals/15/b3/c5/15b3c54a0224c0357ae2430ed7756b5c.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
 
 insert into characters
 (party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
 values
-(2, 2, false, true, 'drew', 'https://i.pinimg.com/736x/07/e9/b6/07e9b6e117db8d955cbbbe207f147de1--female-orc-female-knight.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+(2, 2, false, true, 'Drew', 'https://i.pinimg.com/736x/07/e9/b6/07e9b6e117db8d955cbbbe207f147de1--female-orc-female-knight.jpg', 'bad', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
 insert into characters
 (party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
 values
-(2, 2, true, false, 'stacy', 'https://i.pinimg.com/originals/c4/ac/e9/c4ace97a0a140586a3eacee6dd2bd247.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+(2, 2, true, false, 'Robert', 'https://i.pinimg.com/originals/c4/ac/e9/c4ace97a0a140586a3eacee6dd2bd247.png', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
 -- npcs non in party=============================================
 
 insert into characters 
 (party_id, camp_id, char_npc, char_pc, char_name, char_picture, char_alignment, char_deity, char_strength, char_dexterity, char_constitution, char_intelligence, char_wisdom, char_charisma, char_inventory, char_dm_notes)
 values
-(null, 2, true, false, 'greg', 'https://i.pinimg.com/236x/4d/02/d0/4d02d067ad29802d5995c2a35c00a54a--cg-art-fantasy-characters.jpg', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
+(null, 2, true, false, 'Greg', 'https://i.pinimg.com/236x/4d/02/d0/4d02d067ad29802d5995c2a35c00a54a--cg-art-fantasy-characters.jpg', 'good', 'god', 9, 10, 11, 12, 13, 14, '15 inventory', '16 notes');
 
 
 insert into characters

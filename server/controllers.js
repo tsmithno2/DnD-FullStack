@@ -160,7 +160,7 @@ module.exports = {
       });
   },
 
-  deleteCapaign: (req, res) => {
+  deleteCampaign: (req, res) => {
     const db = req.app.get("db");
     db.delete_campaign_x(req.query.camp_id, req.user.user_id)
       .then(campaignList => {

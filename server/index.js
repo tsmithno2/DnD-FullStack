@@ -119,7 +119,7 @@ app.post("/api/getcompquests", controllers.getComQuests); // used in playing to 
 
 app.post("/api/createquest", controllers.createNewQuest); // used to create a new quest in the newQuestComponent
 
-app.delete("/api/deletecampaign", controllers.deleteCapaign); // will delete all quests, parties, characters and campaign info associated with camp_id that was passed in by the home companent
+app.delete("/api/deletecampaign", controllers.deleteCampaign); // will delete all quests, parties, characters and campaign info associated with camp_id that was passed in by the home companent
 
 app.delete("/api/deletecharacter", controllers.deleteCharacter); // used in the playing component to delete an individual character for a campaign
 
