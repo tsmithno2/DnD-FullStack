@@ -56,7 +56,6 @@ export default class NewQuest extends Component {
   }
 
   render() {
-    console.log("render state ", +this.props.match.params.campaignid);
     return (
       <div className="FullNewQuest">
         <div className="NewQuestCard">

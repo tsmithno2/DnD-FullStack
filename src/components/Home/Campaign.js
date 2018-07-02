@@ -13,9 +13,7 @@ class Campaign extends Component {
     this.clickEdit = this.clickEdit.bind(this);
   }
 
-  clickEdit(camp_id) {
-    console.log(camp_id);
-
+  clickEdit() {
     this.setState({
       showModal: !this.state.showModal
     });

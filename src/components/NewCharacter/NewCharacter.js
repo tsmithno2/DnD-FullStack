@@ -89,7 +89,6 @@ export default class NewCharacter extends Component {
   }
 
   render() {
-    console.log("pre-click ", this.state);
     return (
       <div className="OuterDiv">
         <div className="NewCharacterCard">
@@ -100,7 +99,6 @@ export default class NewCharacter extends Component {
               value={this.state.NPC}
               onClick={() => {
                 this.setState({ NPC: !this.state.NPC });
-                console.log("post-Click ", this.state.NPC);
               }}
               type="checkbox"
             />

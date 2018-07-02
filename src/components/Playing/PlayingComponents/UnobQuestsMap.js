@@ -42,7 +42,6 @@ export default class UnobQuestsMap extends Component {
   }
 
   clickSave() {
-    console.log("saved state ", this.state);
     axios.put("/api/updateunobquests", {
       quest_id: this.state.quest_id,
       quest_name: this.state.quest_name,
@@ -131,7 +130,6 @@ export default class UnobQuestsMap extends Component {
         <button
           onClick={() => {
             this.moveQuestToObtained();
-            console.log("saw the click");
           }}
         >
           Move To Obtained Quests

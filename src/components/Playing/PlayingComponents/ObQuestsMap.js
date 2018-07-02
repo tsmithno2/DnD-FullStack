@@ -33,7 +33,6 @@ export default class UnobQuestsMap extends Component {
     this.setState({
       editToggle: !this.state.editToggle
     });
-    console.log("edit toggle ", this.state);
   }
 
   handleChange(e) {
@@ -43,7 +42,6 @@ export default class UnobQuestsMap extends Component {
   }
 
   clickSave() {
-    console.log("saved state ", this.state);
     axios.put("/api/updateobquests", {
       quest_id: this.state.quest_id,
       quest_name: this.state.quest_name,

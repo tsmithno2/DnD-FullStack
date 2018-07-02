@@ -56,7 +56,6 @@ module.exports = {
   },
 
   createNewCampaign: (req, res) => {
-    console.log("we got here");
     const db = req.app.get("db");
     db.create_new_campaign([
       req.user.user_id,
@@ -92,7 +91,6 @@ module.exports = {
     const db = req.app.get("db");
     console.log(req.body);
     if (req.body.char_npc === true) {
-      console.log("we made it here 1");
       db.create_new_character([
         null,
         req.body.camp_id,
@@ -119,7 +117,6 @@ module.exports = {
           res.status(500).send("error");
         });
     } else {
-      console.log("we made it here 2");
       db.create_new_character([
         req.body.camp_id,
         req.body.camp_id,
