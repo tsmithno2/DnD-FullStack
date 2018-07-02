@@ -33,7 +33,6 @@ export default class NewCharacter extends Component {
       })
       .then(res => {
         this.setState({
-          party_id: res.data[0].party_id,
           camp_id: +this.props.match.params.campaignid
         });
       });
@@ -68,7 +67,7 @@ export default class NewCharacter extends Component {
         party_id: +this.props.match.params.campaignid
       });
     }
-
+    console.log(this.state);
     axios.post("/api/createcharacter", {
       party_id: this.state.party_id,
       camp_id: this.state.camp_id,
@@ -90,6 +89,7 @@ export default class NewCharacter extends Component {
   }
 
   render() {
+    console.log("pre-click ", this.state);
     return (
       <div className="OuterDiv">
         <div className="NewCharacterCard">
@@ -98,7 +98,10 @@ export default class NewCharacter extends Component {
             NPC:
             <input
               value={this.state.NPC}
-              onChange={() => this.setState({ NPC: !this.state.NPC })}
+              onClick={() => {
+                this.setState({ NPC: !this.state.NPC });
+                console.log("post-Click ", this.state.NPC);
+              }}
               type="checkbox"
             />
           </p>
@@ -115,7 +118,6 @@ export default class NewCharacter extends Component {
               value={this.state.name}
               onChange={e => this.setState({ name: e.target.value })}
             />
-            <button>Random Name</button>
           </p>
           <p>
             Gender:

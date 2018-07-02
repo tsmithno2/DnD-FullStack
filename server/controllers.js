@@ -90,31 +90,62 @@ module.exports = {
 
   createNewCharacter: (req, res) => {
     const db = req.app.get("db");
-    db.create_new_character([
-      req.body.party_id,
-      req.body.camp_id,
-      req.body.char_npc,
-      req.body.char_pc,
-      req.body.char_name,
-      req.body.char_picture,
-      req.body.char_alignment,
-      req.body.char_deity,
-      req.body.char_strength,
-      req.body.char_dexterity,
-      req.body.char_constitution,
-      req.body.char_intelligence,
-      req.body.char_wisdom,
-      req.body.char_charisma,
-      req.body.char_inventory,
-      req.body.char_dm_notes
-    ])
-      .then(character => {
-        res.status(200).send(character);
-      })
-      .catch(error => {
-        console.log(error);
-        res.status(500).send("error");
-      });
+    console.log(req.body);
+    if (req.body.char_npc === true) {
+      console.log("we made it here 1");
+      db.create_new_character([
+        null,
+        req.body.camp_id,
+        req.body.char_npc,
+        req.body.char_pc,
+        req.body.char_name,
+        req.body.char_picture,
+        req.body.char_alignment,
+        req.body.char_deity,
+        req.body.char_strength,
+        req.body.char_dexterity,
+        req.body.char_constitution,
+        req.body.char_intelligence,
+        req.body.char_wisdom,
+        req.body.char_charisma,
+        req.body.char_inventory,
+        req.body.char_dm_notes
+      ])
+        .then(character => {
+          res.status(200).send(character);
+        })
+        .catch(error => {
+          console.log(error);
+          res.status(500).send("error");
+        });
+    } else {
+      console.log("we made it here 2");
+      db.create_new_character([
+        req.body.camp_id,
+        req.body.camp_id,
+        req.body.char_npc,
+        req.body.char_pc,
+        req.body.char_name,
+        req.body.char_picture,
+        req.body.char_alignment,
+        req.body.char_deity,
+        req.body.char_strength,
+        req.body.char_dexterity,
+        req.body.char_constitution,
+        req.body.char_intelligence,
+        req.body.char_wisdom,
+        req.body.char_charisma,
+        req.body.char_inventory,
+        req.body.char_dm_notes
+      ])
+        .then(character => {
+          res.status(200).send(character);
+        })
+        .catch(error => {
+          console.log(error);
+          res.status(500).send("error");
+        });
+    }
   },
 
   getNpcs: (req, res) => {
