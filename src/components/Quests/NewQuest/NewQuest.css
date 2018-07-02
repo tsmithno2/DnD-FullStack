@@ -1,42 +1,42 @@
-.OuterDiv {
+.FullNewQuest {
   display: flex;
   justify-content: center;
 }
 
-.NewCharacterCard {
-  margin-top: 30px;
+.NewQuestCard {
   font-family: "Montserrat", sans-serif;
-  height: 1125px;
-  width: 370px;
+  height: 300px;
+  width: 600px;
   border: 2px solid black;
   border-radius: 30px;
   margin-bottom: 30px;
+  margin-left: 20px;
+  margin-top: 30px;
   background-color: #e5e5e3;
   box-shadow: 10px 10px 10px grey;
   display: flex;
-  flex-direction: column;
   align-items: flex-start;
+  flex-direction: column;
 }
 
-.Title {
+.NewQuestCard h1 {
   display: flex;
   flex-direction: column;
   align-content: center;
   font-family: "Merienda", cursive;
   font-size: 30px;
-  margin-left: 70px;
+  margin-left: 180px;
 }
 
-textarea {
-  width: 300px;
-  height: 84px;
-  size: fixed;
-}
-
-.NewCharacterCard button {
+.NewQuestCard button {
   font-family: "Montserrat", sans-serif;
   border-radius: 5px;
   background-color: #323e55;
   color: #e5e5e3;
   margin-left: 20px;
+}
+
+.NewQuestCard select {
+  margin-left: 20px;
+  font-family: "Montserrat", sans-serif;
 }
