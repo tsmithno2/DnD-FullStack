@@ -50,6 +50,7 @@ class Campaign extends Component {
           <button
             onClick={() => {
               this.props.deleteCampaign(this.props.campaign.camp_id);
+              window.location.reload();
             }}
           >
             Delete

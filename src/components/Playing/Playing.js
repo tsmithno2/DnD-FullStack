@@ -25,6 +25,7 @@ export default class Playing extends Component {
     this.componentDidMount = this.componentDidMount.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleDeleteQuest = this.handleDeleteQuest.bind(this);
+    this.onUpdate = this.onUpdate.bind(this);
   }
 
   componentDidMount() {
@@ -87,11 +88,61 @@ export default class Playing extends Component {
   handleDelete(char_id) {
     axios.delete(`/api/deletecharacter?char_id=${char_id}`);
     this.componentDidMount();
+    window.location.reload();
   }
 
   handleDeleteQuest(quest_id) {
     axios.delete(`/api/deletequest?quest_id=${quest_id}`);
     this.componentDidMount();
+    window.location.reload();
+  }
+
+  onUpdate(camp_id) {
+    axios
+      .post("/api/getpartymembers", {
+        camp_id: camp_id
+      })
+      .then(res => {
+        this.setState({
+          party: res.data
+        });
+      });
+    axios
+      .post("/api/getnpcs", {
+        camp_id: camp_id
+      })
+      .then(res => {
+        this.setState({
+          allOtherCharacters: res.data
+        });
+      });
+    axios
+      .post("/api/getunobquests", {
+        camp_id: camp_id
+      })
+      .then(res => {
+        this.setState({
+          unobtainedQuests: res.data
+        });
+      });
+    axios
+      .post("/api/getobquests", {
+        camp_id: camp_id
+      })
+      .then(res => {
+        this.setState({
+          obQuests: res.data
+        });
+      });
+    axios
+      .post("/api/getcompquests", {
+        camp_id: camp_id
+      })
+      .then(res => {
+        this.setState({
+          completedQuests: res.data
+        });
+      });
   }
 
   render() {
@@ -125,7 +176,7 @@ export default class Playing extends Component {
               char_dm_notes={party.char_dm_notes}
               keyi={i}
               handleDelete={this.handleDelete}
-              componentDidMount={this.componentDidMount}
+              onUpdate={this.onUpdate}
             />
           </div>
         );
@@ -150,7 +201,7 @@ export default class Playing extends Component {
               char_dm_notes={party.char_dm_notes}
               keyi={i}
               handleDelete={this.handleDelete}
-              componentDidMount={this.componentDidMount}
+              onUpdate={this.onUpdate}
             />
           </div>
         );
@@ -179,7 +230,7 @@ export default class Playing extends Component {
             char_dm_notes={npcs.char_dm_notes}
             keyi={i}
             handleDelete={this.handleDelete}
-            componentDidMount={this.componentDidMount}
+            onUpdate={this.onUpdate}
           />
         </div>
       );
@@ -197,7 +248,7 @@ export default class Playing extends Component {
             quest_completed={quest.quest_completed}
             keyi={i}
             handleDeleteQuest={this.handleDeleteQuest}
-            componentDidMount={this.componentDidMount}
+            onUpdate={this.onUpdate}
           />
         </div>
       );
@@ -215,7 +266,7 @@ export default class Playing extends Component {
             quest_completed={quest.quest_completed}
             keyi={i}
             handleDeleteQuest={this.handleDeleteQuest}
-            componentDidMount={this.componentDidMount}
+            onUpdate={this.onUpdate}
           />
         </div>
       );
@@ -233,7 +284,7 @@ export default class Playing extends Component {
             quest_completed={quest.quest_completed}
             keyi={i}
             handleDeleteQuest={this.handleDeleteQuest}
-            componentDidMount={this.componentDidMount}
+            onUpdate={this.onUpdate}
           />
         </div>
       );
