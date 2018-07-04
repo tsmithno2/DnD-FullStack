@@ -38,6 +38,16 @@ export default class NewCharacter extends Component {
       });
   }
 
+  randomName() {
+    axios
+      .get("https://uinames.com/api/?amount=1&region=united states")
+      .then(res => {
+        this.setState({
+          name: res.data.name
+        });
+      });
+  }
+
   clickCancel() {
     this.setState({
       name: "",
@@ -116,6 +126,13 @@ export default class NewCharacter extends Component {
               value={this.state.name}
               onChange={e => this.setState({ name: e.target.value })}
             />
+            <button
+              onClick={() => {
+                this.randomName();
+              }}
+            >
+              Random Name
+            </button>
           </p>
           <p>
             Gender:
